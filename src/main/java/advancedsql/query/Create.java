@@ -28,6 +28,30 @@ public class Create extends Action<Create> {
         return this.setColumn(column, type);
     }
 
+    /**
+     * Create a primary column with auto incremented.
+     * Example: int(11) PRIMARY KEY AUTO_INCREMENT
+     *
+     * @return Create
+     */
+    public Create id(String name) {
+        return this.setColumn(name, "int(11) PRIMARY KEY AUTO_INCREMENT");
+    }
+
+    /**
+     * Create a primary column named "id" with auto incremented.
+     * Example: int(11) PRIMARY KEY AUTO_INCREMENT
+     *
+     * @return Create
+     */
+    public Create id() {
+        return this.id("id");
+    }
+
+    public Create string(String name) {
+        return this.setColumn(name, "int(11) PRIMARY KEY AUTO_INCREMENT");
+    }
+
     public Create setColumns(Map<String, String> columns) {
         for (Map.Entry<String, String> entry: columns.entrySet()) this.setColumn(entry.getKey(), entry.getValue());
 

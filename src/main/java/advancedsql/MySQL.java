@@ -10,7 +10,7 @@ public class MySQL extends SQL {
 
     public MySQL(String host, int port, String username, String password, String database) throws SQLException {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             this.connect(host, port, username, password, database);
         } catch (SQLException e) {
@@ -22,6 +22,7 @@ public class MySQL extends SQL {
                 return;
             }
 
+
             throw new SQLException(e.getMessage(), e);
         } catch (ClassNotFoundException e) {
             this.connected = false;
@@ -31,13 +32,13 @@ public class MySQL extends SQL {
     }
 
     private void connect(String host, int port, String username, String password, String database) throws SQLException {
-        connection = DriverManager.getConnection("jdbc:sql://" + host + ":" + port + "/" + database, username, password);
+        connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
 
         this.connected = true;
     }
 
     private void createDatabase(String host, int port, String username, String password, String database) throws SQLException {
-        connection = DriverManager.getConnection("jdbc:sql://" + host + ":" + port, username, password);
+        connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
 
         Statement statement = connection.createStatement();
 
