@@ -16,6 +16,6 @@ public class Text extends Column {
 
     @Override
     public java.lang.String toString() {
-        return name + (nullable ? " " : " NOT NULL ") + "TEXT" + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return name + " TEXT" + (nullable ? " " : " NOT NULL ") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

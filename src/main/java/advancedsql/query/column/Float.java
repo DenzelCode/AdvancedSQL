@@ -5,9 +5,9 @@ public class Float extends Numeric {
     protected java.lang.Integer precision;
 
     public Float(java.lang.String name) {
-        super(name, false, false, 5);
+        super(name, false, false, 11);
 
-        this.precision = 2;
+        this.precision = 6;
     }
 
     public Float(java.lang.String name, java.lang.Integer length, java.lang.Integer precision) {
@@ -18,6 +18,6 @@ public class Float extends Numeric {
 
     @Override
     public java.lang.String toString() {
-        return name + (nullable ? " " : " NOT NULL ") + "FLOAT(" + length + ", " + precision + ")" + (primary ? " PRIMARY KEY" : "") + (increment ? " AUTO_INCREMENT" : "") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return name + " FLOAT(" + length + ", " + precision + ")" + (nullable ? " " : " NOT NULL ") + (primary ? " PRIMARY KEY" : "") + (increment ? " AUTO_INCREMENT" : "") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

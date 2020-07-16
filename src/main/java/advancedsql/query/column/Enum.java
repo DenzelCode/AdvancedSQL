@@ -34,6 +34,6 @@ public class Enum extends Column {
                 string.append("'").append(list[i]).append("', ");
         }
 
-        return name + (nullable ? " " : " NOT NULL ") + "ENUM(" + string.toString() + ")" + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return name + " ENUM(" + string.toString() + ")" + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

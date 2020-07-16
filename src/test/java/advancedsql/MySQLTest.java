@@ -34,10 +34,11 @@ public class MySQLTest {
 
             create.id();
 
-            create.columns(new HashMap<>() {{
-                put("first_name", "varchar(255)");
-                put("last_name", "varchar(255)");
-            }});
+            create.string("first_name");
+
+            create.string("last_name");
+
+            System.out.println(create.toString());
 
             create.execute();
 
