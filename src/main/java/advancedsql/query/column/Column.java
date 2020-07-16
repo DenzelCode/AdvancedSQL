@@ -1,18 +1,24 @@
 package advancedsql.query.column;
 
-class Column implements IColumn {
+import advancedsql.query.action.IAction;
+
+abstract class Column implements IColumn {
     protected java.lang.String name;
 
     protected java.lang.Boolean nullable;
 
     protected java.lang.Boolean nativeDefault;
 
-    public Column(java.lang.String name, boolean nullable) {
+    protected IAction action;
+
+    public Column(IAction<IColumn> action, java.lang.String name, boolean nullable) {
         this.name = name;
 
         this.nullable = nullable;
 
         this.nativeDefault = false;
+
+        this.action = action;
     }
 
     @Override

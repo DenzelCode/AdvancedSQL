@@ -6,7 +6,7 @@ import advancedsql.table.ITable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Select extends Fetchable<Select> {
+public class Select extends ExecuteQuery<Select> {
 
 
     private String[] columns = {"*"};

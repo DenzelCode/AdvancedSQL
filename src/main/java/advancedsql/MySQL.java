@@ -22,7 +22,6 @@ public class MySQL extends SQL {
                 return;
             }
 
-
             throw new SQLException(e.getMessage(), e);
         } catch (ClassNotFoundException e) {
             this.connected = false;

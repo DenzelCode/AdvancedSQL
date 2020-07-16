@@ -11,14 +11,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class Fetchable<T extends IQuery> extends Query<T> {
+public abstract class ExecuteQuery<T extends IQuery> extends Query<T> {
 
-    public Fetchable(ITable table) {
+    public ExecuteQuery(ITable table) {
         super(table);
     }
 
+    @Override
+    public PreparedStatement executePrepare() throws SQLException {
+        this.execute();
+
+        return this.prepare;
+    }
+
     public Map<String, Object> fetch() throws SQLException {
-        ResultSet resultSet = this.fetchAll();
+        ResultSet resultSet = this.execute();
 
         if (resultSet == null) return null;
 
@@ -34,9 +41,7 @@ public abstract class Fetchable<T extends IQuery> extends Query<T> {
     }
 
     public ResultSet fetchAll() throws SQLException {
-        PreparedStatement prepare = this.executePrepare();
-
-        return prepare.getResultSet();
+        return execute();
     }
 
     public List<Map<String, Object>> fetchAllAsList() throws SQLException {
@@ -45,7 +50,7 @@ public abstract class Fetchable<T extends IQuery> extends Query<T> {
         return ISQL.convertResultSetToList(resultSet);
     }
 
-    public PreparedStatement execute() throws SQLException {
-        return this.executePrepare();
+    public ResultSet execute() throws SQLException {
+        return this.executeQuery();
     }
 }

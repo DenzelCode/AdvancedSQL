@@ -1,13 +1,15 @@
 package advancedsql.query.column;
 
+import advancedsql.query.action.IAction;
+
 public class Base extends Column {
 
     protected java.lang.Integer length;
 
     protected java.lang.String content;
 
-    public Base(java.lang.String name, java.lang.String content) {
-        super(name, true);
+    public Base(IAction<IColumn> action, java.lang.String name, java.lang.String content) {
+        super(action, name, true);
 
         this.name = name;
 
@@ -16,6 +18,6 @@ public class Base extends Column {
 
     @Override
     public java.lang.String toString() {
-        return name + "  " + content;
+        return this.action.getPrefix() + name + "  " + content;
     }
 }

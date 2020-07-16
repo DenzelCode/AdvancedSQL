@@ -5,7 +5,7 @@ import advancedsql.table.ITable;
 import java.util.List;
 import java.util.Map;
 
-public class Insert extends Action<Insert> {
+public class Insert extends ExecuteUpdate<Insert> {
 
     private List<String> fields;
 

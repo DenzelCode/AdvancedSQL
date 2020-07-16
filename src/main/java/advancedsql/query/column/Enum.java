@@ -1,5 +1,7 @@
 package advancedsql.query.column;
 
+import advancedsql.query.action.IAction;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,8 +11,8 @@ public class Enum extends Column {
 
     protected Object defaultValue;
 
-    public Enum(java.lang.String name, Object[] list) {
-        super(name, false);
+    public Enum(IAction<IColumn> action, java.lang.String name, Object[] list) {
+        super(action, name, false);
 
         this.name = name;
 
@@ -34,6 +36,6 @@ public class Enum extends Column {
                 string.append("'").append(list[i]).append("', ");
         }
 
-        return name + " ENUM(" + string.toString() + ")" + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " ENUM(" + string.toString() + ")" + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

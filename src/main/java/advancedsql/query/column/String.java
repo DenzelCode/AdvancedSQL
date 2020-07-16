@@ -1,13 +1,15 @@
 package advancedsql.query.column;
 
+import advancedsql.query.action.IAction;
+
 public class String extends Column {
 
     protected java.lang.Integer length;
 
     protected java.lang.String defaultValue;
 
-    public String(java.lang.String name, java.lang.Integer length, java.lang.Boolean nullable) {
-        super(name, nullable);
+    public String(IAction<IColumn> action, java.lang.String name, java.lang.Integer length, java.lang.Boolean nullable) {
+        super(action, name, nullable);
 
         this.name = name;
 
@@ -22,6 +24,6 @@ public class String extends Column {
 
     @Override
     public java.lang.String toString() {
-        return name + " VARCHAR(" + length + ")" + (nullable ? " " : " NOT NULL ") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " VARCHAR(" + length + ")" + (nullable ? " " : " NOT NULL") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

@@ -1,14 +1,15 @@
 package advancedsql.query.column;
 
-import java.io.FileInputStream;
+import advancedsql.query.action.IAction;
+
 import java.io.InputStream;
 
 public class Binary extends Column {
 
     protected InputStream defaultValue;
 
-    public Binary(java.lang.String name) {
-        super(name, false);
+    public Binary(IAction<IColumn> action, java.lang.String name) {
+        super(action, name, false);
     }
 
     public Binary defaultValue(InputStream value) {
@@ -19,6 +20,6 @@ public class Binary extends Column {
 
     @Override
     public java.lang.String toString() {
-        return name + " BLOB" + (nullable ? " " : " NOT NULL ") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " BLOB" + (nullable ? " " : " NOT NULL ") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

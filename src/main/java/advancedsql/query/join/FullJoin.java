@@ -9,7 +9,7 @@ public class FullJoin extends Join {
     }
 
     @Override
-    public String getPreffix() {
+    public String getPrefix() {
         return "FULL JOIN";
     }
 }

@@ -4,6 +4,7 @@ import advancedsql.ISQL;
 import advancedsql.table.ITable;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,20 +59,28 @@ public abstract class Query<T extends IQuery> implements IQuery {
         return this.where(where);
     }
 
-    @Override
-    public PreparedStatement executePrepare() throws SQLException {
-        this.executeBoolean();
-
-        return this.prepare;
-    }
-
-    @Override
-    public boolean executeBoolean() throws SQLException {
-        this.prepare = this.sql.prepare(this);
+    public Boolean executeStatement() throws SQLException {
+        prepare = this.sql.prepare(this);
 
         ISQL.setStatementParameters(this.prepare, this.execute);
 
         return prepare.execute();
+    }
+
+    public ResultSet executeQuery() throws SQLException {
+        prepare = this.sql.prepare(this);
+
+        ISQL.setStatementParameters(this.prepare, this.execute);
+
+        return prepare.executeQuery();
+    }
+
+    public int executeUpdate() throws SQLException {
+        prepare = this.sql.prepare(this);
+
+        ISQL.setStatementParameters(this.prepare, this.execute);
+
+        return prepare.executeUpdate();
     }
 
     public abstract String toQuery();

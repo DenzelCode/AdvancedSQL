@@ -17,6 +17,8 @@ public interface ITable {
 
     Create create();
 
+    Alter alter();
+
     Insert insert();
 
     Update update();

@@ -4,6 +4,7 @@ import advancedsql.query.IQuery;
 import advancedsql.query.Select;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Join implements IJoin {
@@ -89,18 +90,23 @@ public class Join implements IJoin {
     }
 
     @Override
-    public boolean executeBoolean() throws SQLException {
-        return this.query.executeBoolean();
+    public boolean executeStatement() throws SQLException {
+        return this.query.executeStatement();
     }
 
     @Override
-    public String getPreffix() {
+    public ResultSet executeQuery() throws SQLException {
+        return this.query.executeQuery();
+    }
+
+    @Override
+    public String getPrefix() {
         return "JOIN";
     }
 
     @Override
     public String toQuery() {
-        StringBuilder query = new StringBuilder(this.getPreffix() + " " + this.table);
+        StringBuilder query = new StringBuilder(this.getPrefix() + " " + this.table);
 
         query.append(this.as != null ? " AS " + this.as : "");
 

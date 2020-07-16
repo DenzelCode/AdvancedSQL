@@ -3,6 +3,7 @@ package advancedsql.query.join;
 import advancedsql.query.IQuery;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface IJoin {
@@ -29,9 +30,11 @@ public interface IJoin {
 
     PreparedStatement executePrepare() throws SQLException;
 
-    boolean executeBoolean() throws SQLException;
+    boolean executeStatement() throws SQLException;
 
-    String getPreffix();
+    ResultSet executeQuery() throws SQLException;
+
+    String getPrefix();
 
     String toQuery();
 }

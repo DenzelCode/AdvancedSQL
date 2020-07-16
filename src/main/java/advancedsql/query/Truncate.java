@@ -2,7 +2,7 @@ package advancedsql.query;
 
 import advancedsql.table.ITable;
 
-public class Truncate extends Action<Truncate> {
+public class Truncate extends ExecuteStatement<Truncate> {
 
     public Truncate(ITable table) {
         super(table);

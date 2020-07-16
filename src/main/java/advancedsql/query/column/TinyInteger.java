@@ -1,17 +1,19 @@
 package advancedsql.query.column;
 
+import advancedsql.query.action.IAction;
+
 public class TinyInteger extends Numeric {
 
-    public TinyInteger(java.lang.String name) {
-        super(name, false, false, 0);
+    public TinyInteger(IAction<IColumn> action, java.lang.String name) {
+        super(action, name, false, false, 0);
     }
 
-    public TinyInteger(java.lang.String name, java.lang.Integer length) {
-        super(name, false, false, length);
+    public TinyInteger(IAction<IColumn> action, java.lang.String name, java.lang.Integer length) {
+        super(action, name, false, false, length);
     }
 
     @Override
     public java.lang.String toString() {
-        return name + " TINYINT" + (nullable ? " " : " NOT NULL ") + (length > 0 ? "(" + length + ")" : "") + (primary ? " PRIMARY KEY" : "") + (increment ? " AUTO_INCREMENT" : "") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " TINYINT" + (nullable ? " " : " NOT NULL") + (length > 0 ? "(" + length + ")" : "") + (primary ? " PRIMARY KEY" : "") + (increment ? " AUTO_INCREMENT" : "") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

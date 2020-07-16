@@ -49,6 +49,11 @@ public class Table implements ITable {
     }
 
     @Override
+    public Alter alter() {
+        return new Alter(this);
+    }
+
+    @Override
     public Insert insert() {
         return new Insert(this);
     }

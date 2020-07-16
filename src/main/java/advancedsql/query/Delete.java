@@ -2,7 +2,7 @@ package advancedsql.query;
 
 import advancedsql.table.ITable;
 
-public class Delete extends Action<Delete> {
+public class Delete extends ExecuteUpdate<Delete> {
 
     public Delete(ITable table) {
         super(table);

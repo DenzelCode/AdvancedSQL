@@ -9,7 +9,7 @@ public class InnerJoin extends Join {
     }
 
     @Override
-    public String getPreffix() {
+    public String getPrefix() {
         return "INNER JOIN";
     }
 }

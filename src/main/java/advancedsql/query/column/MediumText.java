@@ -1,11 +1,13 @@
 package advancedsql.query.column;
 
+import advancedsql.query.action.IAction;
+
 public class MediumText extends Column {
 
     protected java.lang.String defaultValue;
 
-    public MediumText(java.lang.String name) {
-        super(name, false);
+    public MediumText(IAction<IColumn> action, java.lang.String name) {
+        super(action, name, false);
     }
 
     public MediumText defaultValue(java.lang.String value) {
@@ -16,6 +18,6 @@ public class MediumText extends Column {
 
     @Override
     public java.lang.String toString() {
-        return name + " MEDIUMTEXT" + (nullable ? " " : " NOT NULL ") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " MEDIUMTEXT" + (nullable ? " " : " NOT NULL ") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

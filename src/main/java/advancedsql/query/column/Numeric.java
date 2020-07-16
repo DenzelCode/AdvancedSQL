@@ -1,5 +1,7 @@
 package advancedsql.query.column;
 
+import advancedsql.query.action.IAction;
+
 public abstract class Numeric extends Column {
 
     protected java.lang.Boolean unsigned;
@@ -12,8 +14,8 @@ public abstract class Numeric extends Column {
 
     protected java.lang.Integer defaultValue;
 
-    public Numeric(java.lang.String name, java.lang.Boolean nullable, java.lang.Boolean unsigned, java.lang.Integer length) {
-        super(name, nullable);
+    public Numeric(IAction<IColumn> action, java.lang.String name, java.lang.Boolean nullable, java.lang.Boolean unsigned, java.lang.Integer length) {
+        super(action, name, nullable);
 
         this.unsigned = unsigned;
 

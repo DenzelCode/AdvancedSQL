@@ -1,11 +1,13 @@
 package advancedsql.query.column;
 
+import advancedsql.query.action.IAction;
+
 public class Boolean extends Column {
 
     protected java.lang.String defaultValue;
 
-    public Boolean(java.lang.String name) {
-        super(name, false);
+    public Boolean(IAction<IColumn> action, java.lang.String name) {
+        super(action, name, false);
     }
 
     public Boolean defaultValue(java.lang.String value) {
@@ -16,6 +18,6 @@ public class Boolean extends Column {
 
     @Override
     public java.lang.String toString() {
-        return name + " BOOLEAN" + (nullable ? " " : " NOT NULL ") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " BOOLEAN" + (nullable ? " " : " NOT NULL ") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

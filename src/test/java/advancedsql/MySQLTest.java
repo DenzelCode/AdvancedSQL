@@ -3,11 +3,15 @@
  */
 package advancedsql;
 
+import advancedsql.query.Alter;
 import advancedsql.query.Create;
+import advancedsql.query.action.Add;
+import advancedsql.query.action.Drop;
+import advancedsql.query.action.Modify;
+import advancedsql.table.ITable;
 import org.junit.Test;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -30,7 +34,15 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            Create create = mySQL.table("test").create();
+            ITable table = mySQL.table("test");
+
+            if (mySQL.table("test").exists()) {
+                System.out.println("Table test already exists, deleting.");
+
+                table.drop().execute();
+            }
+
+            Create create = table.create();
 
             create.id();
 
@@ -38,11 +50,46 @@ public class MySQLTest {
 
             create.string("last_name");
 
-            System.out.println(create.toString());
+            create.string("test");
 
-            create.execute();
+            Boolean result = create.execute();
 
-            assertTrue(mySQL.isConnected());
+            System.out.println(create);
+
+            System.out.println(result);
+
+            assertFalse(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test public void testAfterTable() {
+        try {
+            MySQL mySQL = connect();
+
+            Alter alter = mySQL.table("test").alter();
+
+            Add add = alter.add();
+
+            add.string("token");
+            add.string("connection_id");
+
+            Drop drop = alter.drop();
+
+            drop.column("test");
+
+            Modify modify = alter.modify();
+
+            modify.integer("connection_id");
+
+            Boolean result = alter.execute();
+
+            System.out.println(alter);
+
+            System.out.println(result);
+
+            assertFalse(result);
         } catch (SQLException e) {
             e.printStackTrace();
         }
