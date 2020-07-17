@@ -25,17 +25,25 @@ public abstract class ExecuteQuery<T extends IQuery> extends Query<T> {
     }
 
     public Map<String, Object> fetch() throws SQLException {
+        this.limit(1);
+
         ResultSet resultSet = this.execute();
 
         if (resultSet == null) return null;
 
-        resultSet.first();
+        resultSet.next();
 
         ResultSetMetaData metaData = resultSet.getMetaData();
 
         Map<String, Object> map = new HashMap<>();
 
-        for (int i = 0; i < metaData.getColumnCount(); i++) map.put(metaData.getColumnName(i), resultSet.getObject(i));
+        for (int i = 0; i < metaData.getColumnCount(); i++) {
+            try {
+                map.put(metaData.getColumnName(i), resultSet.getObject(i));
+            } catch (SQLException e) {
+
+            }
+        }
 
         return map;
     }

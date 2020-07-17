@@ -3,10 +3,7 @@
  */
 package advancedsql;
 
-import advancedsql.query.Alter;
-import advancedsql.query.Create;
-import advancedsql.query.Insert;
-import advancedsql.query.Update;
+import advancedsql.query.*;
 import advancedsql.query.action.Add;
 import advancedsql.query.action.Drop;
 import advancedsql.query.action.Modify;
@@ -15,6 +12,7 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -125,13 +123,29 @@ public class MySQLTest {
                 put("token", "Advanced");
             }}).where("first_name = ?", "Denzel");
 
-            System.out.println(query);
-
             int execute = query.execute();
+
+            System.out.println(query);
 
             System.out.println(execute);
 
             assertEquals(1, execute);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test public void testSelect() {
+        try {
+            MySQL mySQL = connect();
+
+            Select query = mySQL.table("test").select().limit(1);
+
+            Map<String, Object> fetch = query.fetch();
+
+            System.out.println(fetch);
+
+            assertEquals(fetch.get("first_name"), "Denzel");
         } catch (SQLException e) {
             e.printStackTrace();
         }

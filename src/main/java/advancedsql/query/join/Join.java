@@ -112,7 +112,7 @@ public class Join implements IJoin {
 
         query.append(this.on != null ? " ON (" + this.on + ")" : "");
 
-        query.append(this.using != null ? " USING (" + String.join(", ", this.using) + ")" : "");
+        query.append(this.using != null ? " USING (" + String.join(", ", this.using) + ")" : " ");
 
         return query.toString();
     }

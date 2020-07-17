@@ -25,6 +25,10 @@ public class Select extends ExecuteQuery<Select> {
         this.order = order;
     }
 
+    public void orderBy(String order) {
+        this.order = order;
+    }
+
     public Select setColumns(String[] columns) {
         this.columns = columns;
 
@@ -89,7 +93,7 @@ public class Select extends ExecuteQuery<Select> {
 
         for (IJoin join: this.joins) query.append(" ").append(join.toQuery());
 
-        query.append(this.where != null ? " WHERE " + this.where : "");
+        query.append(this.where != null ? "WHERE " + this.where : "");
 
         query.append(this.order != null ? " ORDER BY " + this.order : "");
 
