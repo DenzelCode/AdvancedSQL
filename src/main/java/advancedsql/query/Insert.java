@@ -2,17 +2,25 @@ package advancedsql.query;
 
 import advancedsql.table.ITable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Insert extends ExecuteUpdate<Insert> {
 
-    private List<String> fields;
+    private List<String> fields = new ArrayList<>();
 
-    private List<Object> values;
+    private List<Object> values = new ArrayList<>();
 
     public Insert(ITable table) {
         super(table);
+    }
+
+    public Insert(ITable table, Map<String, Object> fields) {
+        super(table);
+
+        this.setFields(fields);
     }
 
     public Insert setField(String field, Object value) {

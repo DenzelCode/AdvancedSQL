@@ -15,6 +15,12 @@ public class Update extends ExecuteUpdate<Update> {
         super(table);
     }
 
+    public Update(ITable table, Map<String, Object> fields) {
+        super(table);
+
+        this.setFields(fields);
+    }
+
     public Update setField(String field, Object value) {
         this.fields.add(field);
 

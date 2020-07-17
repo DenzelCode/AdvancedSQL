@@ -12,6 +12,7 @@ import advancedsql.table.ITable;
 import org.junit.Test;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -72,8 +73,8 @@ public class MySQLTest {
 
             Add add = alter.add();
 
-            add.string("token");
-            add.string("connection_id");
+            add.string("token").nullable();
+            add.string("connection_id").nullable();
 
             Drop drop = alter.drop();
 
@@ -90,6 +91,18 @@ public class MySQLTest {
             System.out.println(result);
 
             assertFalse(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test public void testInsert() {
+        try {
+            MySQL mySQL = connect();
+
+            mySQL.table("test").insert(new HashMap<>(){{
+                put("first_name", "Denzel");
+            }}).execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }

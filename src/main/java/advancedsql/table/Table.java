@@ -7,6 +7,7 @@ import advancedsql.query.*;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class Table implements ITable {
 
@@ -59,8 +60,18 @@ public class Table implements ITable {
     }
 
     @Override
+    public Insert insert(Map<String, Object> fields) {
+        return new Insert(this, fields);
+    }
+
+    @Override
     public Update update() {
         return new Update(this);
+    }
+
+    @Override
+    public Update update(Map<String, Object> fields) {
+        return new Update(this, fields);
     }
 
     @Override
