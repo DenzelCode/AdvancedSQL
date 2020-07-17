@@ -15,6 +15,10 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+
+    flatDir {
+        dirs 'lib'
+    }
 }
 
 dependencies {
@@ -26,4 +30,6 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+
+    compile (name:'mysql-connector-java-8.0.21', ext:'jar')
 }
