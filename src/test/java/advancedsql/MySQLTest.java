@@ -5,7 +5,6 @@ package advancedsql;
 
 import advancedsql.query.*;
 import advancedsql.query.action.Add;
-import advancedsql.query.action.Drop;
 import advancedsql.query.action.Modify;
 import advancedsql.table.ITable;
 import org.junit.Test;
@@ -69,6 +68,8 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
+            if (!mySQL.table("test").exists()) this.testCreateTable();
+
             Alter alter = mySQL.table("test").alter();
 
             Add add = alter.add();
@@ -76,7 +77,7 @@ public class MySQLTest {
             add.string("token").nullable();
             add.string("connection_id").nullable();
 
-            Drop drop = alter.drop();
+            advancedsql.query.action.Drop drop = alter.drop();
 
             drop.column("test");
 
@@ -100,6 +101,8 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
+            if (!mySQL.table("test").exists()) this.testCreateTable();
+
             Insert query = mySQL.table("test").insert(new HashMap<>(){{
                 put("first_name", "Denzel");
                 put("last_name", "Code");
@@ -118,6 +121,8 @@ public class MySQLTest {
     @Test public void testUpdate() {
         try {
             MySQL mySQL = connect();
+
+            if (!mySQL.table("test").exists()) this.testCreateTable();
 
             Update query = mySQL.table("test").update(new HashMap<>(){{
                 put("token", "Advanced");
@@ -139,13 +144,73 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            Select query = mySQL.table("test").select().limit(1);
+            if (!mySQL.table("test").exists()) this.testCreateTable();
+
+            Select query = mySQL.table("test").select();
 
             Map<String, Object> fetch = query.fetch();
 
             System.out.println(fetch);
 
             assertEquals(fetch.get("first_name"), "Denzel");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test public void testDelete() {
+        this.testInsert();
+
+        try {
+            MySQL mySQL = connect();
+
+            if (!mySQL.table("test").exists()) this.testCreateTable();
+
+            Delete query = mySQL.table("test").delete().where("first_name = ?", "Denzel");
+
+            System.out.println(query);
+
+            int execute = query.execute();
+
+            assertEquals(1, execute);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test public void testTruncate() {
+        this.testCreateTable();
+
+        try {
+            MySQL mySQL = connect();
+
+            if (!mySQL.table("test").exists()) this.testCreateTable();
+
+            Truncate query = mySQL.table("test").truncate();
+
+            System.out.println(query);
+
+            Boolean execute = query.execute();
+
+            assertFalse(execute);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test public void testDrop() {
+        try {
+            MySQL mySQL = connect();
+
+            if (!mySQL.table("test").exists()) this.testCreateTable();
+
+            Drop query = mySQL.table("test").drop();
+
+            System.out.println(query);
+
+            Boolean execute = query.execute();
+
+            assertFalse(execute);
         } catch (SQLException e) {
             e.printStackTrace();
         }

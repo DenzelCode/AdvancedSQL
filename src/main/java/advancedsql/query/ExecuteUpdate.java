@@ -13,6 +13,8 @@ public abstract class ExecuteUpdate<T extends IQuery> extends Query<T> {
 
     @Override
     public PreparedStatement executePrepare() throws SQLException {
+        System.out.println(this.execute);
+
         this.execute();
 
         return this.prepare;
