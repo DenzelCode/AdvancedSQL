@@ -14,6 +14,6 @@ public class BigInteger extends Numeric {
 
     @Override
     public java.lang.String toString() {
-        return this.action.getPrefix() + name + " BIGINT" + (length > 0 ? "(" + length + ")" : "") + (nullable ? " " : " NOT NULL") + (primary ? " PRIMARY KEY" : "") + (increment ? " AUTO_INCREMENT" : "") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " BIGINT" + (length > 0 ? "(" + length + ")" : "") + (nullable ? " NULL" : " NOT NULL") + (primary ? " PRIMARY KEY" : "") + (increment ? " AUTO_INCREMENT" : "") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

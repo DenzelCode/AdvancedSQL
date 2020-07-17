@@ -24,6 +24,6 @@ public class String extends Column {
 
     @Override
     public java.lang.String toString() {
-        return this.action.getPrefix() + name + " VARCHAR(" + length + ")" + (nullable ? " " : " NOT NULL") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " VARCHAR(" + length + ")" + (nullable ? " NULL" : " NOT NULL") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

@@ -14,6 +14,6 @@ public class MediumInteger extends Numeric {
 
     @Override
     public java.lang.String toString() {
-        return this.action.getPrefix() + name + " MEDIUMINT" + (nullable ? " " : " NOT NULL") + (length > 0 ? "(" + length + ")" : "") + (primary ? " PRIMARY KEY" : "") + (increment ? " AUTO_INCREMENT" : "") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
+        return this.action.getPrefix() + name + " MEDIUMINT" + (nullable ? " NULL" : " NOT NULL") + (length > 0 ? "(" + length + ")" : "") + (primary ? " PRIMARY KEY" : "") + (increment ? " AUTO_INCREMENT" : "") + (defaultValue != null ? " DEFAULT " + (!nativeDefault ? "'" + defaultValue + "'" : defaultValue) : "");
     }
 }

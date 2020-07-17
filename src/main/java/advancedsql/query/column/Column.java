@@ -28,7 +28,7 @@ abstract class Column implements IColumn {
 
     @Override
     public IColumn nullable() {
-        this.nativeDefault = true;
+        this.nullable = true;
 
         return this;
     }

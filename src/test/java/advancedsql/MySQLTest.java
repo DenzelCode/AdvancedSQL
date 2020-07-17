@@ -5,6 +5,7 @@ package advancedsql;
 
 import advancedsql.query.Alter;
 import advancedsql.query.Create;
+import advancedsql.query.Insert;
 import advancedsql.query.action.Add;
 import advancedsql.query.action.Drop;
 import advancedsql.query.action.Modify;
@@ -82,7 +83,7 @@ public class MySQLTest {
 
             Modify modify = alter.modify();
 
-            modify.integer("connection_id");
+            modify.integer("connection_id").nullable();
 
             Boolean result = alter.execute();
 
@@ -100,9 +101,16 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            mySQL.table("test").insert(new HashMap<>(){{
+            Insert query = mySQL.table("test").insert(new HashMap<>(){{
                 put("first_name", "Denzel");
-            }}).execute();
+                put("last_name", "Code");
+            }});
+
+            int execute = query.execute();
+
+            System.out.println(execute);
+
+            assertEquals(1, execute);
         } catch (SQLException e) {
             e.printStackTrace();
         }
