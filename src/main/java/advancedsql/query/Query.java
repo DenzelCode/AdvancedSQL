@@ -54,7 +54,7 @@ public abstract class Query<T extends IQuery> implements IQuery {
     }
 
     public T where(String where, Object... execute) {
-        this.execute = Arrays.asList(execute);
+        this.execute.addAll(Arrays.asList(execute));
 
         return this.where(where);
     }

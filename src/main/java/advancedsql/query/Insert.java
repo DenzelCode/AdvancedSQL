@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class Insert extends ExecuteUpdate<Insert> {
 
-    private List<String> fields = new ArrayList<>();
+    private final List<String> fields = new ArrayList<>();
 
-    private List<Object> values = new ArrayList<>();
+    private final List<Object> values = new ArrayList<>();
 
     public Insert(ITable table) {
         super(table);

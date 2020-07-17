@@ -2,14 +2,15 @@ package advancedsql.query;
 
 import advancedsql.table.ITable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class Update extends ExecuteUpdate<Update> {
 
-    private List<String> fields;
+    private final List<String> fields = new ArrayList<>();
 
-    private List<Object> values;
+    private final List<Object> values = new ArrayList<>();
 
     public Update(ITable table) {
         super(table);
@@ -47,7 +48,7 @@ public class Update extends ExecuteUpdate<Update> {
 
     @Override
     public String toQuery() {
-        StringBuilder query = new StringBuilder("UPDATE FROM " + this.table + " (");
+        StringBuilder query = new StringBuilder("UPDATE " + this.table + " ");
 
         for (int i = 0; i < this.fields.size(); i++) query.append(this.fields.size() == 1 ? "SET " + this.fields.get(i) + " = ? " : (i == 0 ? "SET " + this.fields.get(i) + " = ?, " : (i != this.fields.size() - 1 ? this.fields.get(i) + " = ?, " : this.fields.get(i) + " = ?")));
 

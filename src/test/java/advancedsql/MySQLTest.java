@@ -6,6 +6,7 @@ package advancedsql;
 import advancedsql.query.Alter;
 import advancedsql.query.Create;
 import advancedsql.query.Insert;
+import advancedsql.query.Update;
 import advancedsql.query.action.Add;
 import advancedsql.query.action.Drop;
 import advancedsql.query.action.Modify;
@@ -105,6 +106,26 @@ public class MySQLTest {
                 put("first_name", "Denzel");
                 put("last_name", "Code");
             }});
+
+            int execute = query.execute();
+
+            System.out.println(execute);
+
+            assertEquals(1, execute);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test public void testUpdate() {
+        try {
+            MySQL mySQL = connect();
+
+            Update query = mySQL.table("test").update(new HashMap<>(){{
+                put("token", "Advanced");
+            }}).where("first_name = ?", "Denzel");
+
+            System.out.println(query);
 
             int execute = query.execute();
 
