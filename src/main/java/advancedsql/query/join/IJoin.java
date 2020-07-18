@@ -1,10 +1,13 @@
 package advancedsql.query.join;
 
 import advancedsql.query.IQuery;
+import advancedsql.query.Select;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 public interface IJoin {
 
@@ -24,9 +27,15 @@ public interface IJoin {
 
     IJoin fullJoin(String table);
 
-    IQuery where(String where, Object... execute);
+    Select where(String where, Object... execute);
 
-    IQuery where(String where);
+    Select where(String where);
+
+    Map<String, Object> fetch() throws SQLException;
+
+    ResultSet fetchAll() throws SQLException;
+
+    List<Map<String, Object>> fetchAllAsList() throws SQLException;
 
     PreparedStatement executePrepare() throws SQLException;
 
@@ -34,7 +43,13 @@ public interface IJoin {
 
     ResultSet executeQuery() throws SQLException;
 
+    ResultSet execute() throws SQLException;
+
+    Select getQuery();
+
     String getPrefix();
 
     String toQuery();
+
+    String toString();
 }

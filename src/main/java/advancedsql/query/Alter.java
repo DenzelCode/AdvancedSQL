@@ -43,6 +43,6 @@ public class Alter extends ExecuteStatement<Alter> {
 
         for (int i = 0; i < dropColumns.size(); i++) query.append(i != dropColumns.size() - 1 ? drop.getPrefix() + dropColumns.get(i) + ", " : drop.getPrefix() + dropColumns.get(i) + ";");
 
-        return query.toString();
+        return query.toString().trim();
     }
 }

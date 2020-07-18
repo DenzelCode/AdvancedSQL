@@ -11,6 +11,6 @@ public class Delete extends ExecuteUpdate<Delete> {
     @Override
     public String toQuery() {
         return "DELETE FROM " + this.table + (this.where != null ? " WHERE " + this.where : "") +
-                (this.limit > 0 ? " LIMIT " + this.limit : "");
+                (this.limit > 0 ? " LIMIT " + this.limit : "").trim();
     }
 }

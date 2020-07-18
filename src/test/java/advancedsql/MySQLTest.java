@@ -34,7 +34,8 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            ITable table = mySQL.table("test");
+            // Table
+            ITable table = mySQL.table("users");
 
             if (mySQL.table("test").exists()) {
                 System.out.println("Table test already exists, deleting.");
@@ -42,20 +43,19 @@ public class MySQLTest {
                 table.drop().execute();
             }
 
+            // Create table
             Create create = table.create();
 
+            // Table columns
             create.id();
-
             create.string("first_name");
-
             create.string("last_name");
-
             create.string("test");
 
             Boolean result = create.execute();
 
+            // Print query string and result.
             System.out.println(create);
-
             System.out.println(result);
 
             assertFalse(result);
@@ -68,27 +68,27 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            if (!mySQL.table("test").exists()) this.testCreateTable();
+            // Alter columns
+            Alter alter = mySQL.table("users").alter();
 
-            Alter alter = mySQL.table("test").alter();
-
+            // Add columns
             Add add = alter.add();
-
             add.string("token").nullable();
             add.string("connection_id").nullable();
 
+            // Drop columns
             advancedsql.query.action.Drop drop = alter.drop();
-
             drop.column("test");
 
+            // Modify columns
             Modify modify = alter.modify();
-
             modify.integer("connection_id").nullable();
 
+            // Execute query
             Boolean result = alter.execute();
 
+            // Print query string and result.
             System.out.println(alter);
-
             System.out.println(result);
 
             assertFalse(result);
@@ -101,15 +101,15 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            if (!mySQL.table("test").exists()) this.testCreateTable();
-
-            Insert query = mySQL.table("test").insert(new HashMap<>(){{
+            // Insert
+            Insert query = mySQL.table("users").insert(new HashMap<>(){{
                 put("first_name", "Denzel");
                 put("last_name", "Code");
             }});
-
             int execute = query.execute();
 
+            // Print query string and result.
+            System.out.println(query);
             System.out.println(execute);
 
             assertEquals(1, execute);
@@ -122,16 +122,14 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            if (!mySQL.table("test").exists()) this.testCreateTable();
-
-            Update query = mySQL.table("test").update(new HashMap<>(){{
+            // Update
+            Update query = mySQL.table("users").update(new HashMap<>(){{
                 put("token", "Advanced");
             }}).where("first_name = ?", "Denzel");
-
             int execute = query.execute();
 
+            // Print query string and result.
             System.out.println(query);
-
             System.out.println(execute);
 
             assertEquals(1, execute);
@@ -144,12 +142,12 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            if (!mySQL.table("test").exists()) this.testCreateTable();
-
-            Select query = mySQL.table("test").select();
-
+            // Select
+            Select query = mySQL.table("users").select();
             Map<String, Object> fetch = query.fetch();
 
+            // Print query string and result.
+            System.out.println(query);
             System.out.println(fetch);
 
             assertEquals(fetch.get("first_name"), "Denzel");
@@ -158,19 +156,54 @@ public class MySQLTest {
         }
     }
 
-    @Test public void testDelete() {
-        this.testInsert();
-
+    @Test public void testCreateSelectJoin() {
         try {
             MySQL mySQL = connect();
 
-            if (!mySQL.table("test").exists()) this.testCreateTable();
+            // Create information table
+            ITable table = mySQL.table("information");
 
-            Delete query = mySQL.table("test").delete().where("first_name = ?", "Denzel");
+            // Delete table if exists.
+            if (mySQL.table("information").exists()) table.drop().execute();
 
-            System.out.println(query);
+            // Create table
+            Create create = table.create();
 
+            // Table columns
+            create.id();
+            create.integer("user_id").nullable();
+            create.string("address").nullable();
+            Boolean execute = create.execute();
+
+            // Insert value
+            table.insert(new HashMap<>(){{
+                put("user_id", 1);
+                put("address", "20 Cooper Square");
+            }}).execute();
+
+            table = mySQL.table("users");
+
+            Map<String, Object> user = table.select().limit(1).innerJoin("information").on("users.id = information.user_id").where("first_name = ?", "Denzel").fetch();
+
+            System.out.println(user);
+
+            assertEquals("Denzel", user.get("first_name"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test public void testDelete() {
+        try {
+            MySQL mySQL = connect();
+
+            // Delete
+            Delete query = mySQL.table("users").delete().where("first_name = ?", "Denzel");
             int execute = query.execute();
+
+            // Print query and result.
+            System.out.println(query);
+            System.out.println(execute);
 
             assertEquals(1, execute);
         } catch (SQLException e) {
@@ -179,18 +212,16 @@ public class MySQLTest {
     }
 
     @Test public void testTruncate() {
-        this.testCreateTable();
-
         try {
             MySQL mySQL = connect();
 
-            if (!mySQL.table("test").exists()) this.testCreateTable();
-
-            Truncate query = mySQL.table("test").truncate();
-
-            System.out.println(query);
-
+            // Truncate table
+            Truncate query = mySQL.table("users").truncate();
             Boolean execute = query.execute();
+
+            // Print query and result.
+            System.out.println(query);
+            System.out.println(execute);
 
             assertFalse(execute);
         } catch (SQLException e) {
@@ -202,13 +233,13 @@ public class MySQLTest {
         try {
             MySQL mySQL = connect();
 
-            if (!mySQL.table("test").exists()) this.testCreateTable();
-
-            Drop query = mySQL.table("test").drop();
-
-            System.out.println(query);
-
+            // Drop table
+            Drop query = mySQL.table("users").drop();
             Boolean execute = query.execute();
+
+            // Print query and result.
+            System.out.println(query);
+            System.out.println(execute);
 
             assertFalse(execute);
         } catch (SQLException e) {

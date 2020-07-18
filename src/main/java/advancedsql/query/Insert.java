@@ -59,6 +59,6 @@ public class Insert extends ExecuteUpdate<Insert> {
 
         query.append(")");
 
-        return query.toString();
+        return query.toString().trim();
     }
 }

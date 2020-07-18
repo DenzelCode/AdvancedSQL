@@ -149,6 +149,6 @@ public class Create extends ExecuteStatement<Create> {
 
         query.append(")");
 
-        return query.toString();
+        return query.toString().trim();
     }
 }

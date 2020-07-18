@@ -56,6 +56,6 @@ public class Update extends ExecuteUpdate<Update> {
 
         query.append(this.limit > 0 ? " LIMIT " + this.limit : "");
 
-        return query.toString();
+        return query.toString().trim();
     }
 }

@@ -91,7 +91,7 @@ public class Select extends ExecuteQuery<Select> {
 
         query.append(this.table != null ? " FROM " + this.table : "");
 
-        for (IJoin join: this.joins) query.append(" ").append(join.toQuery());
+        for (IJoin join: this.joins) query.append(" ").append(join);
 
         query.append(this.where != null ? "WHERE " + this.where : "");
 
@@ -99,6 +99,6 @@ public class Select extends ExecuteQuery<Select> {
 
         query.append(this.limit > 0 ? " LIMIT " + this.limit : "");
 
-        return query.toString();
+        return query.toString().trim();
     }
 }

@@ -6,6 +6,9 @@ import advancedsql.query.Select;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 public class Join implements IJoin {
 
@@ -71,12 +74,12 @@ public class Join implements IJoin {
     }
 
     @Override
-    public IQuery where(String where) {
+    public Select where(String where) {
         return this.query.where(where);
     }
 
     @Override
-    public IQuery where(String where, Object... execute) {
+    public Select where(String where, Object... execute) {
         return this.query.where(where, execute);
     }
 
@@ -85,8 +88,24 @@ public class Join implements IJoin {
         return this.query.executePrepare();
     }
 
-    public PreparedStatement execute() throws SQLException {
-        return this.executePrepare();
+    @Override
+    public ResultSet execute() throws SQLException {
+        return this.executeQuery();
+    }
+
+    @Override
+    public Map<String, Object> fetch() throws SQLException {
+        return this.query.fetch();
+    }
+
+    @Override
+    public ResultSet fetchAll() throws SQLException {
+        return this.query.fetchAll();
+    }
+
+    @Override
+    public List<Map<String, Object>> fetchAllAsList() throws SQLException {
+        return this.query.fetchAllAsList();
     }
 
     @Override
@@ -105,6 +124,11 @@ public class Join implements IJoin {
     }
 
     @Override
+    public Select getQuery() {
+        return query;
+    }
+
+    @Override
     public String toQuery() {
         StringBuilder query = new StringBuilder(this.getPrefix() + " " + this.table);
 
@@ -115,5 +139,10 @@ public class Join implements IJoin {
         query.append(this.using != null ? " USING (" + String.join(", ", this.using) + ")" : " ");
 
         return query.toString();
+    }
+
+    @Override
+    public String toString() {
+        return this.toQuery();
     }
 }
