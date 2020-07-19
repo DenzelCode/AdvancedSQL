@@ -7,23 +7,6 @@ import java.sql.SQLException;
 public interface IQuery {
 
     /**
-     * Specify what values will be affected for example:
-     * query.where("first_name = ? AND last_name = ?", "Denzel", "Code");
-     * @param where Where statement.
-     * @param execute Values of the statement.
-     * @return Query object.
-     */
-    IQuery where(String where, Object... execute);
-
-    /**
-     * Specify what values will be affected for example:
-     * query.where("first_name = 'Denzel' AND last_name = 'Code'");
-     * @param where Where statement.
-     * @return Query object.
-     */
-    IQuery where(String where);
-
-    /**
      * Execute query and return a boolean.
      * Recommended for: CREATE, ALTER, DROP, TRUNCATE.
      * @return boolean.

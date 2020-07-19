@@ -32,37 +32,6 @@ public abstract class Query<T extends IQuery> implements IQuery {
         this.table = table.getName();
     }
 
-    /**
-     * Assign the limit of rows to be affected.
-     * @param limit Limit amount.
-     * @return Query object.
-     */
-    public T limit(int limit) {
-        this.limit = limit;
-
-        return (T)this;
-    }
-
-    /**
-     * @return Limit of rows to be affected.
-     */
-    public int getLimit() {
-        return this.limit;
-    }
-
-    @Override
-    public T where(String where) {
-        this.where = where;
-
-        return (T)this;
-    }
-
-    public T where(String where, Object... execute) {
-        this.execute.addAll(Arrays.asList(execute));
-
-        return this.where(where);
-    }
-
     public Boolean executeStatement() throws SQLException {
         prepare = this.sql.prepare(this);
 

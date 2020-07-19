@@ -5,7 +5,7 @@ import advancedsql.table.ITable;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public abstract class ExecuteUpdate<T extends IQuery> extends Query<T> {
+public abstract class ExecuteUpdate<T extends IQuery> extends Specifiable<T> {
 
     public ExecuteUpdate(ITable table) {
         super(table);

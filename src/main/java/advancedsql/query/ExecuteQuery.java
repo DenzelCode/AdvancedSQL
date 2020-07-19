@@ -7,11 +7,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class ExecuteQuery<T extends IQuery> extends Query<T> {
+public abstract class ExecuteQuery<T extends IQuery> extends Specifiable<T> {
 
     public ExecuteQuery(ITable table) {
         super(table);

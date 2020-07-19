@@ -25,8 +25,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa7ecebd-2fc4-411e-bea9-987f673412b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/advancedsql/query/ISpecifiable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/advancedsql/query/Specifiable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/advancedsql/query/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/advancedsql/query/Create.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/advancedsql/query/ExecuteQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/advancedsql/query/ExecuteQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/advancedsql/query/ExecuteUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/advancedsql/query/ExecuteUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/advancedsql/query/IQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/advancedsql/query/IQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/advancedsql/query/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/advancedsql/query/Query.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +70,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -240,7 +246,7 @@
       <workItem from="1594900293483" duration="35094000" />
       <workItem from="1595032077232" duration="36729000" />
       <workItem from="1595145814332" duration="3223000" />
-      <workItem from="1595170306706" duration="5348000" />
+      <workItem from="1595170306706" duration="6191000" />
     </task>
     <servers />
   </component>
@@ -279,22 +285,22 @@
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state x="599" y="364" width="482" height="275" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1680.955@0.23.1680.955" timestamp="1594846493601" />
-    <state width="1638" height="257" key="GridCell.Tab.0.bottom" timestamp="1595178015467">
+    <state width="1638" height="257" key="GridCell.Tab.0.bottom" timestamp="1595179181195">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1595178015467" />
-    <state width="1638" height="257" key="GridCell.Tab.0.center" timestamp="1595178015466">
+    <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1595179181195" />
+    <state width="1638" height="257" key="GridCell.Tab.0.center" timestamp="1595179181195">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1595178015466" />
-    <state width="1638" height="257" key="GridCell.Tab.0.left" timestamp="1595178015466">
+    <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1595179181195" />
+    <state width="1638" height="257" key="GridCell.Tab.0.left" timestamp="1595179181194">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1595178015466" />
-    <state width="1638" height="257" key="GridCell.Tab.0.right" timestamp="1595178015467">
+    <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1595179181194" />
+    <state width="1638" height="257" key="GridCell.Tab.0.right" timestamp="1595179181195">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1595178015467" />
+    <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1595179181195" />
     <state width="1638" height="311" key="GridCell.Tab.1.bottom" timestamp="1594965772050">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
@@ -343,10 +349,10 @@
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state x="505" y="230" key="run.anything.popup/0.23.1680.955@0.23.1680.955" timestamp="1595025834817" />
-    <state x="505" y="232" width="670" height="158" key="search.everywhere.popup" timestamp="1595170602550">
+    <state x="505" y="232" width="670" height="158" key="search.everywhere.popup" timestamp="1595178967563">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state x="505" y="232" width="670" height="158" key="search.everywhere.popup/0.23.1680.955@0.23.1680.955" timestamp="1595170602550" />
+    <state x="505" y="232" width="670" height="158" key="search.everywhere.popup/0.23.1680.955@0.23.1680.955" timestamp="1595178967563" />
     <state x="570" y="414" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1594819363624">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
