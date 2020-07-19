@@ -175,19 +175,32 @@ public class MySQLTest {
             create.string("address").nullable();
             Boolean execute = create.execute();
 
+            // Print query and result.
+            System.out.println(create);
+            System.out.println(execute);
+
+            String address = "20 Cooper Square";
+
             // Insert value
             table.insert(new HashMap<>(){{
                 put("user_id", 1);
-                put("address", "20 Cooper Square");
+                put("address", address);
             }}).execute();
 
             table = mySQL.table("users");
 
-            Map<String, Object> user = table.select().limit(1).innerJoin("information").on("users.id = information.user_id").where("first_name = ?", "Denzel").fetch();
+            Select query = table.select(new String[]{"information.address", "users.first_name"})
+                    .innerJoin("information")
+                    .on("users.id = information.user_id")
+                    .where("first_name = ?", "Denzel");
 
+            Map<String, Object> user = query.fetch();
+
+            // Print query and result.
+            System.out.println(query);
             System.out.println(user);
 
-            assertEquals("Denzel", user.get("first_name"));
+            assertEquals(address, user.get("address"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -45,6 +45,11 @@ public class Table implements ITable {
     }
 
     @Override
+    public Select select(String[] columns) {
+        return new Select(this, columns);
+    }
+
+    @Override
     public Create create() {
         return new Create(this);
     }
@@ -88,6 +93,4 @@ public class Table implements ITable {
     public Drop drop() {
         return new Drop(this);
     }
-
-
 }

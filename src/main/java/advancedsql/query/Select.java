@@ -17,6 +17,12 @@ public class Select extends ExecuteQuery<Select> {
 
     private List<IJoin> joins = new ArrayList<>();
 
+    public Select(ITable table, String[] columns) {
+        super(table);
+
+        this.columns = columns;
+    }
+
     public Select(ITable table) {
         super(table);
     }
@@ -87,7 +93,7 @@ public class Select extends ExecuteQuery<Select> {
     public String toQuery() {
         StringBuilder query = new StringBuilder("SELECT " + (this.distinct != null ? "DISTINCT " + this.distinct : ""));
 
-        query.append(String.join(",", this.columns));
+        query.append(String.join(", ", this.columns));
 
         query.append(this.table != null ? " FROM " + this.table : "");
 

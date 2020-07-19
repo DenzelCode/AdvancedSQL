@@ -16,6 +16,8 @@ public interface ITable {
 
     Select select();
 
+    Select select(String[] columns);
+
     Create create();
 
     Alter alter();
