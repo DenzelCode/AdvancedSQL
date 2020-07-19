@@ -25,7 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa7ecebd-2fc4-411e-bea9-987f673412b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/advancedsql/MySQLTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/advancedsql/MySQLTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/advancedsql/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/advancedsql/MySQL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +239,7 @@
       <workItem from="1594821259931" duration="30940000" />
       <workItem from="1594900293483" duration="35094000" />
       <workItem from="1595032077232" duration="36729000" />
-      <workItem from="1595145814332" duration="2512000" />
+      <workItem from="1595145814332" duration="2540000" />
     </task>
     <servers />
   </component>
