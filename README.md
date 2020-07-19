@@ -25,6 +25,7 @@ try {
 ```java
 import advancedsql.*;
 import advancedsql.query.*;
+import advancedsql.table.ITable;
 
 try {
     MySQL mySQL = connect();
@@ -45,6 +46,43 @@ try {
 
     // Print query string and result.
     System.out.println(create);
+    System.out.println(result);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Alter table:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import advancedsql.query.action.Add;
+import advancedsql.query.action.Modify;
+
+try {
+    MySQL mySQL = connect();
+
+    // Alter columns
+    Alter alter = mySQL.table("users").alter();
+
+    // Add columns
+    Add add = alter.add();
+    add.string("token").nullable();
+    add.string("connection_id").nullable();
+
+    // Drop columns
+    advancedsql.query.action.Drop drop = alter.drop();
+    drop.column("test");
+
+    // Modify columns
+    Modify modify = alter.modify();
+    modify.integer("connection_id").nullable();
+
+    // Execute query
+    Boolean result = alter.execute();
+
+    // Print query string and result.
+    System.out.println(alter);
     System.out.println(result);
 } catch (SQLException e) {
     e.printStackTrace();
