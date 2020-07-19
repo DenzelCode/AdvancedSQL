@@ -223,6 +223,69 @@ try {
 }
 ```
 
+**Delete:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import java.sql.SQLException;
+
+try {
+    MySQL mySQL = connect();
+
+    // Delete
+    Delete query = mySQL.table("users").delete().where("first_name = ?", "Denzel");
+    int execute = query.execute();
+
+    // Print query and result.
+    System.out.println(query);
+    System.out.println(execute);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Truncate:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import java.sql.SQLException;
+
+try {
+    MySQL mySQL = connect();
+
+    // Truncate table
+    Truncate query = mySQL.table("users").truncate();
+    Boolean execute = query.execute();
+
+    // Print query and result.
+    System.out.println(query);
+    System.out.println(execute);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Drop:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import java.sql.SQLException;
+
+try {
+    MySQL mySQL = connect();
+
+    // Drop table
+    Drop query = mySQL.table("users").drop();
+    Boolean execute = query.execute();
+
+    // Print query and result.
+    System.out.println(query);
+    System.out.println(execute);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
 ## Licensing information
 This project is licensed under LGPL-3.0. Please see the [LICENSE](/LICENSE) file for details.
 
