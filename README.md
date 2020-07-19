@@ -4,7 +4,10 @@ The best Java query builder/SQL connector.
 ## What's AdvancedSQL?
 AdvancedSQL is a SQL query builder and/or connector that helps you to generate/modify information on the database without even have to write any line of SQL code, which sometimes is kindof boring and tiring. AdvancedSQL is the best exit for that developers who wants to continue coding without having to write out-of-syntax code (SQL queries) on Java code.
 
-## Documentation:
+## Download
+Download the last JAR version: https://github.com/DenzelCode/AdvancedSQL/releases/latest
+
+## Examples:
 **Connect to the Database:**
 There is no need to create the database manually, AdvancedSQL does it for you.
 ```java
@@ -26,6 +29,8 @@ try {
 import advancedsql.*;
 import advancedsql.query.*;
 import advancedsql.table.ITable;
+
+import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
@@ -59,6 +64,8 @@ import advancedsql.query.*;
 import advancedsql.query.action.Add;
 import advancedsql.query.action.Modify;
 
+import java.sql.SQLException;
+
 try {
     MySQL mySQL = connect();
 
@@ -84,6 +91,199 @@ try {
     // Print query string and result.
     System.out.println(alter);
     System.out.println(result);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Insert:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+try {
+    MySQL mySQL = connect();
+
+    // Insert
+    Insert query = mySQL.table("users").insert(new HashMap<>(){{
+        put("first_name", "Denzel");
+        put("last_name", "Code");
+    }});
+    int execute = query.execute();
+
+    // Print query string and result.
+    System.out.println(query);
+    System.out.println(execute);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Update:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+try {
+    MySQL mySQL = connect();
+
+    // Update
+    Update query = mySQL.table("users").update(new HashMap<>(){{
+        put("token", "Advanced");
+    }}).where("first_name = ?", "Denzel");
+    int execute = query.execute();
+
+    // Print query string and result.
+    System.out.println(query);
+    System.out.println(execute)p
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Select:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import java.sql.SQLException;
+
+try {
+    MySQL mySQL = connect();
+
+    // Select
+    Select query = mySQL.table("users").select();
+    Map<String, Object> fetch = query.fetch();
+
+    // Print query string and result.
+    System.out.println(query);
+    System.out.println(fetch);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Select with join:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import advancedsql.query.action.Add;
+import advancedsql.query.action.Modify;
+import advancedsql.table.ITable;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+try {
+    MySQL mySQL = connect();
+
+    // Create information table
+    ITable table = mySQL.table("information");
+
+    // Delete table if exists.
+    if (mySQL.table("information").exists()) table.drop().execute();
+
+    // Create table
+    Create create = table.create();
+
+    // Table columns
+    create.id();
+    create.integer("user_id").nullable();
+    create.string("address").nullable();
+    Boolean execute = create.execute();
+
+    // Print query and result.
+    System.out.println(create);
+    System.out.println(execute);
+
+    // Insert value
+    table.insert(new HashMap<>(){{
+        put("user_id", 1);
+        put("address", "20 Cooper Square");
+    }}).execute();
+
+    table = mySQL.table("users");
+
+    Select query = table.select(new String[]{"information.address", "users.first_name"})
+            .innerJoin("information")
+            .on("users.id = information.user_id")
+            .where("first_name = ?", "Denzel");
+
+    Map<String, Object> user = query.fetch();
+
+    // Print query and result.
+    System.out.println(query);
+    System.out.println(user);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Delete:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import java.sql.SQLException;
+
+try {
+    MySQL mySQL = connect();
+
+    // Delete
+    Delete query = mySQL.table("users").delete().where("first_name = ?", "Denzel");
+    int execute = query.execute();
+
+    // Print query and result.
+    System.out.println(query);
+    System.out.println(execute);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Truncate:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import java.sql.SQLException;
+
+try {
+    MySQL mySQL = connect();
+
+    // Truncate table
+    Truncate query = mySQL.table("users").truncate();
+    Boolean execute = query.execute();
+
+    // Print query and result.
+    System.out.println(query);
+    System.out.println(execute);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Drop:**
+```java
+import advancedsql.*;
+import advancedsql.query.*;
+import java.sql.SQLException;
+
+try {
+    MySQL mySQL = connect();
+
+    // Drop table
+    Drop query = mySQL.table("users").drop();
+    Boolean execute = query.execute();
+
+    // Print query and result.
+    System.out.println(query);
+    System.out.println(execute);
 } catch (SQLException e) {
     e.printStackTrace();
 }
