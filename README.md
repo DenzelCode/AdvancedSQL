@@ -27,6 +27,8 @@ import advancedsql.*;
 import advancedsql.query.*;
 import advancedsql.table.ITable;
 
+import java.sql.SQLException;
+
 try {
     MySQL mySQL = connect();
 
@@ -58,6 +60,8 @@ import advancedsql.*;
 import advancedsql.query.*;
 import advancedsql.query.action.Add;
 import advancedsql.query.action.Modify;
+
+import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
@@ -94,6 +98,10 @@ try {
 import advancedsql.*;
 import advancedsql.query.*;
 
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
 try {
     MySQL mySQL = connect();
 
@@ -107,8 +115,6 @@ try {
     // Print query string and result.
     System.out.println(query);
     System.out.println(execute);
-
-    assertEquals(1, execute);
 } catch (SQLException e) {
     e.printStackTrace();
 }
@@ -118,6 +124,9 @@ try {
 ```java
 import advancedsql.*;
 import advancedsql.query.*;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 try {
     MySQL mySQL = connect();
@@ -130,9 +139,7 @@ try {
 
     // Print query string and result.
     System.out.println(query);
-    System.out.println(execute);
-
-    assertEquals(1, execute);
+    System.out.println(execute)p
 } catch (SQLException e) {
     e.printStackTrace();
 }
@@ -142,6 +149,7 @@ try {
 ```java
 import advancedsql.*;
 import advancedsql.query.*;
+import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
@@ -162,6 +170,13 @@ try {
 ```java
 import advancedsql.*;
 import advancedsql.query.*;
+import advancedsql.query.action.Add;
+import advancedsql.query.action.Modify;
+import advancedsql.table.ITable;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 try {
     MySQL mySQL = connect();
