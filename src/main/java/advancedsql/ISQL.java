@@ -41,9 +41,7 @@ public interface ISQL {
         for (int i = 0; i < execute.size(); i++) {
             Object value = execute.get(i);
 
-            if (value instanceof String) statement.setString(i + 1, (String) value);
-
-            if (value instanceof Integer) statement.setInt(i + 1, (Integer) value);
+            statement.setObject(i + 1, value);
         }
     }
 }
