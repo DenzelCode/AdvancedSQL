@@ -2,7 +2,7 @@
   <artifact type="jar" build-on-make="true" name="AdvancedSQL:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/AdvancedSQL_jar</output-path>
     <root id="archive" name="AdvancedSQL.jar">
-      <element id="extracted-dir" path="$PROJECT_DIR$/libs/mysql-connector-java-8.0.21.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/mysql-connector-java-8.0.21.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
