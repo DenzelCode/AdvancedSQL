@@ -4,6 +4,9 @@ The best Java query builder/SQL connector.
 ## What's AdvancedSQL?
 AdvancedSQL is a SQL query builder and/or connector that helps you to generate/modify information on the database without even have to write any line of SQL code, which sometimes is kindof boring and tiring. AdvancedSQL is the best exit for that developers who wants to continue coding without having to write out-of-syntax code (SQL queries) on Java code.
 
+## Download
+Download the last JAR version: https://github.com/DenzelCode/AdvancedSQL/releases/latest
+
 ## Examples:
 **Connect to the Database:**
 There is no need to create the database manually, AdvancedSQL does it for you.
