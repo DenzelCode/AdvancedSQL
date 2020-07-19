@@ -7,9 +7,7 @@ public class Float extends Numeric {
     protected java.lang.Integer precision;
 
     public Float(IAction<IColumn> action, java.lang.String name) {
-        super(action, name, false, false, 11);
-
-        this.precision = 6;
+        this(action, name, 11, 6);
     }
 
     public Float(IAction<IColumn> action, java.lang.String name, java.lang.Integer length, java.lang.Integer precision) {

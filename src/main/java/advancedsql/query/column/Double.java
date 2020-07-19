@@ -7,9 +7,7 @@ public class Double extends Numeric {
     protected java.lang.Integer precision;
 
     public Double(IAction<IColumn> action, java.lang.String name) {
-        super(action, name, false, false, 11);
-
-        this.precision = 8;
+        this(action, name, 11, 8);
     }
 
     public Double(IAction<IColumn> action, java.lang.String name, java.lang.Integer length, java.lang.Integer precision) {

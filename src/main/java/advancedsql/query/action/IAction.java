@@ -15,6 +15,4 @@ public interface IAction<T> {
      * @return Action prefix.
      */
     java.lang.String getPrefix();
-
-    java.lang.String toString();
 }

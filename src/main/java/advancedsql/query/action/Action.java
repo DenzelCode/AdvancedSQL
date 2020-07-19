@@ -6,16 +6,10 @@ import advancedsql.query.column.IColumn;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Action implements IAction<IColumn> {
+public abstract class Action implements IAction<IColumn>, IActionColumns {
 
     protected List<IColumn> columns = new ArrayList<>();
 
-    /**
-     * Create a primary column with auto incremented.
-     * Example: int(11) PRIMARY KEY AUTO_INCREMENT
-     *
-     * @return advancedsql.query.column.Integer
-     */
     public advancedsql.query.column.Integer id(String name) {
         advancedsql.query.column.Integer column = this.integer(name);
 
@@ -24,6 +18,11 @@ public abstract class Action implements IAction<IColumn> {
         return column;
     }
 
+    /**
+     * Create a column with type BIGINT.
+     * @param name Name of the column.
+     * @return
+     */
     public advancedsql.query.column.BigInteger bigInteger(String name) {
         return this.bigInteger(name, 0);
     }
@@ -192,12 +191,6 @@ public abstract class Action implements IAction<IColumn> {
         return this.doubleColumn(name, 11, 8);
     }
 
-    /**
-     * Create a primary column named "id" with auto incremented.
-     * Example: int(11) PRIMARY KEY AUTO_INCREMENT
-     *
-     * @return advancedsql.query.column.Integer
-     */
     public advancedsql.query.column.Integer id() {
         return this.id("id");
     }

@@ -7,9 +7,7 @@ public class Decimal extends Numeric {
     protected java.lang.Integer precision;
 
     public Decimal(IAction<IColumn> action, java.lang.String name) {
-        super(action, name, false, false, 5);
-
-        this.precision = 2;
+        this(action, name, 5, 2);
     }
 
     public Decimal(IAction<IColumn> action, java.lang.String name, java.lang.Integer length, java.lang.Integer precision) {

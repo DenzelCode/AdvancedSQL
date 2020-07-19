@@ -24,7 +24,7 @@ public class Select extends ExecuteQuery<Select> {
     }
 
     public Select(ITable table) {
-        super(table);
+        this(table, new String[]{"*"});
     }
 
     /**
