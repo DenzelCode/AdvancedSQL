@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AdvancedSQL:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,7 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa7ecebd-2fc4-411e-bea9-987f673412b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/AdvancedSQL_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +104,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -233,7 +241,7 @@
       <workItem from="1594821259931" duration="30940000" />
       <workItem from="1594900293483" duration="35094000" />
       <workItem from="1595032077232" duration="36729000" />
-      <workItem from="1595145814332" duration="63000" />
+      <workItem from="1595145814332" duration="922000" />
     </task>
     <servers />
   </component>
@@ -256,6 +264,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="560" y="300" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595146804757">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state x="560" y="300" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.955@0.23.1680.955" timestamp="1595146804757" />
     <state x="653" y="211" key="#com.intellij.ide.util.MemberChooser" timestamp="1595144989618">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
@@ -268,22 +280,22 @@
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state x="599" y="364" width="482" height="275" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1680.955@0.23.1680.955" timestamp="1594846493601" />
-    <state width="1638" height="257" key="GridCell.Tab.0.bottom" timestamp="1595145798316">
+    <state width="1638" height="257" key="GridCell.Tab.0.bottom" timestamp="1595146669007">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1595145798316" />
-    <state width="1638" height="257" key="GridCell.Tab.0.center" timestamp="1595145798316">
+    <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1595146669007" />
+    <state width="1638" height="257" key="GridCell.Tab.0.center" timestamp="1595146669006">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1595145798316" />
-    <state width="1638" height="257" key="GridCell.Tab.0.left" timestamp="1595145798316">
+    <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1595146669006" />
+    <state width="1638" height="257" key="GridCell.Tab.0.left" timestamp="1595146669006">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1595145798316" />
-    <state width="1638" height="257" key="GridCell.Tab.0.right" timestamp="1595145798316">
+    <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1595146669006" />
+    <state width="1638" height="257" key="GridCell.Tab.0.right" timestamp="1595146669007">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1595145798316" />
+    <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1595146669007" />
     <state width="1638" height="311" key="GridCell.Tab.1.bottom" timestamp="1594965772050">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
@@ -300,10 +312,10 @@
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state width="1638" height="311" key="GridCell.Tab.1.right/0.23.1680.955@0.23.1680.955" timestamp="1594965772050" />
-    <state x="341" y="139" key="SettingsEditor" timestamp="1595145867217">
+    <state x="341" y="139" key="SettingsEditor" timestamp="1595146221177">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state x="341" y="139" key="SettingsEditor/0.23.1680.955@0.23.1680.955" timestamp="1595145867217" />
+    <state x="341" y="139" key="SettingsEditor/0.23.1680.955@0.23.1680.955" timestamp="1595146221177" />
     <state width="500" height="445" key="SwitcherDM" timestamp="1595040111538">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
