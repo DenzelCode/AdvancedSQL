@@ -3,6 +3,7 @@ package advancedsql.query.column;
 import advancedsql.query.action.IAction;
 
 import java.io.InputStream;
+import java.sql.Blob;
 
 public class Binary extends Column {
 
@@ -12,6 +13,11 @@ public class Binary extends Column {
         super(action, name, false);
     }
 
+    /**
+     * Set default value.
+     * @param value Default value.
+     * @return Column object.
+     */
     public Binary defaultValue(InputStream value) {
         this.defaultValue = value;
 

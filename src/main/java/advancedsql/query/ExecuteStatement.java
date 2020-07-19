@@ -18,6 +18,11 @@ public abstract class ExecuteStatement<T extends IQuery> extends Query<T> {
         return this.prepare;
     }
 
+    /**
+     * Execute query.
+     * @return A boolean.
+     * @throws SQLException Exception when something goes wrong.
+     */
     public Boolean execute() throws SQLException {
         return this.executeStatement();
     }

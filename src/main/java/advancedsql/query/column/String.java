@@ -16,6 +16,11 @@ public class String extends Column {
         this.length = length;
     }
 
+    /**
+     * Set default value.
+     * @param value Default value.
+     * @return Column object.
+     */
     public String defaultValue(java.lang.String value) {
         this.defaultValue = value;
 

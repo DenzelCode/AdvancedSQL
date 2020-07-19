@@ -1,12 +1,10 @@
 package advancedsql.query.join;
 
-import advancedsql.query.IQuery;
 import advancedsql.query.Select;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -109,13 +107,18 @@ public class Join implements IJoin {
     }
 
     @Override
-    public boolean executeStatement() throws SQLException {
+    public Boolean executeStatement() throws SQLException {
         return this.query.executeStatement();
     }
 
     @Override
     public ResultSet executeQuery() throws SQLException {
         return this.query.executeQuery();
+    }
+
+    @Override
+    public int executeUpdate() throws SQLException {
+        return this.query.executeUpdate();
     }
 
     @Override

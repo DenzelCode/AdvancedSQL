@@ -10,6 +10,11 @@ public class MediumText extends Column {
         super(action, name, false);
     }
 
+    /**
+     * Set default value.
+     * @param value Default value.
+     * @return Column object.
+     */
     public MediumText defaultValue(java.lang.String value) {
         this.defaultValue = value;
 

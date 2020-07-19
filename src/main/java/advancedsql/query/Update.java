@@ -10,8 +10,6 @@ public class Update extends ExecuteUpdate<Update> {
 
     private final List<String> fields = new ArrayList<>();
 
-    private final List<Object> values = new ArrayList<>();
-
     public Update(ITable table) {
         super(table);
     }
@@ -19,31 +17,32 @@ public class Update extends ExecuteUpdate<Update> {
     public Update(ITable table, Map<String, Object> fields) {
         super(table);
 
-        this.setFields(fields);
+        this.fields(fields);
     }
 
-    public Update setField(String field, Object value) {
+    /**
+     * Columns and values that you want to update.
+     * @param field Column name
+     * @param value Row value
+     * @return Query object.
+     */
+    public Update field(String field, Object value) {
         this.fields.add(field);
-
-        this.values.add(value);
 
         this.execute.add(value);
 
         return this;
     }
 
-    public Update field(String field, Object value) {
-        return this.setField(field, value);
-    }
-
-    public Update setFields(Map<String, Object> values) {
-        for (Map.Entry<String, Object> entry: values.entrySet()) this.setField(entry.getKey(), entry.getValue());
+    /**
+     * Columns and values that you want to update.
+     * @param values Map
+     * @return Query object.
+     */
+    public Update fields(Map<String, Object> values) {
+        for (Map.Entry<String, Object> entry: values.entrySet()) this.field(entry.getKey(), entry.getValue());
 
         return this;
-    }
-
-    public Update fields(Map<String, Object> values) {
-        return this.setFields(values);
     }
 
     @Override

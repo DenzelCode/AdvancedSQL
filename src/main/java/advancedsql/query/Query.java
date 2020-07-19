@@ -32,16 +32,20 @@ public abstract class Query<T extends IQuery> implements IQuery {
         this.table = table.getName();
     }
 
-    public T setLimit(int limit) {
+    /**
+     * Assign the limit of rows to be affected.
+     * @param limit Limit amount.
+     * @return Query object.
+     */
+    public T limit(int limit) {
         this.limit = limit;
 
         return (T)this;
     }
 
-    public T limit(int limit) {
-        return this.setLimit(limit);
-    }
-
+    /**
+     * @return Limit of rows to be affected.
+     */
     public int getLimit() {
         return this.limit;
     }

@@ -22,24 +22,41 @@ public abstract class Numeric extends Column {
         this.length = length;
     }
 
+    /**
+     * Enable UNSIGNED.
+     * @return  Column object.
+     */
     public IColumn unsigned() {
         this.unsigned = true;
 
         return this;
     }
 
+    /**
+     * Enable PRIMARY KEY.
+     * @return Column object.
+     */
     public Numeric primary() {
         this.primary = true;
 
         return this;
     }
 
+    /**
+     * Enable AUTO INCREMENT.
+     * @return Column object.
+     */
     public Numeric increment() {
         this.increment = true;
 
         return this;
     }
 
+    /**
+     * Set default value.
+     * @param value Default value.
+     * @return Column object.
+     */
     public Numeric defaultValue(java.lang.Integer value) {
         this.defaultValue = value;
 

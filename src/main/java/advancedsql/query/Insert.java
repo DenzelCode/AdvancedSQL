@@ -20,10 +20,16 @@ public class Insert extends ExecuteUpdate<Insert> {
     public Insert(ITable table, Map<String, Object> fields) {
         super(table);
 
-        this.setFields(fields);
+        this.fields(fields);
     }
 
-    public Insert setField(String field, Object value) {
+    /**
+     * Columns and values that you want to insert.
+     * @param field Column name
+     * @param value Row value
+     * @return Query object.
+     */
+    public Insert field(String field, Object value) {
         this.fields.add(field);
 
         this.values.add(value);
@@ -33,18 +39,15 @@ public class Insert extends ExecuteUpdate<Insert> {
         return this;
     }
 
-    public Insert field(String field, Object value) {
-        return this.setField(field, value);
-    }
-
-    public Insert setFields(Map<String, Object> values) {
-        for (Map.Entry<String, Object> entry: values.entrySet()) this.setField(entry.getKey(), entry.getValue());
+    /**
+     * Columns and values that you want to insert.
+     * @param values Map
+     * @return Query object.
+     */
+    public Insert fields(Map<String, Object> values) {
+        for (Map.Entry<String, Object> entry: values.entrySet()) this.field(entry.getKey(), entry.getValue());
 
         return this;
-    }
-
-    public Insert fields(Map<String, Object> values) {
-        return this.setFields(values);
     }
 
     @Override

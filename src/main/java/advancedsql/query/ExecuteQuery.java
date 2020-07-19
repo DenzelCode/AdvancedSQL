@@ -24,6 +24,10 @@ public abstract class ExecuteQuery<T extends IQuery> extends Query<T> {
         return this.prepare;
     }
 
+    /**
+     * @return A Map of the first result found.
+     * @throws SQLException Exception when something goes wrong.
+     */
     public Map<String, Object> fetch() throws SQLException {
         this.limit(1);
 
@@ -48,16 +52,29 @@ public abstract class ExecuteQuery<T extends IQuery> extends Query<T> {
         return map;
     }
 
+    /**
+     * @return ResultSet of all the results found.
+     * @throws SQLException Exception when something goes wrong.
+     */
     public ResultSet fetchAll() throws SQLException {
         return execute();
     }
 
+    /**
+     * @return A List of all the results found.
+     * @throws SQLException Exception when something goes wrong.
+     */
     public List<Map<String, Object>> fetchAllAsList() throws SQLException {
         ResultSet resultSet = this.fetchAll();
 
         return ISQL.convertResultSetToList(resultSet);
     }
 
+    /**
+     * Execute query.
+     * @return A ResultSet of all the results found.
+     * @throws SQLException Exception when something goes wrong.
+     */
     public ResultSet execute() throws SQLException {
         return this.executeQuery();
     }

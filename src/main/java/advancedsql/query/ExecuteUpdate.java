@@ -20,6 +20,11 @@ public abstract class ExecuteUpdate<T extends IQuery> extends Query<T> {
         return this.prepare;
     }
 
+    /**
+     * Execute the query.
+     * @return An integer.
+     * @throws SQLException Exception when something goes wrong.
+     */
     public int execute() throws SQLException {
         return this.executeUpdate();
     }

@@ -16,14 +16,23 @@ public class Alter extends ExecuteStatement<Alter> {
         super(table);
     }
 
+    /**
+     * @return "Drop" Object that allows you to specify the columns that you want to drop.
+     */
     public advancedsql.query.action.Drop drop() {
         return drop;
     }
 
+    /**
+     * @return "Modify" Object that allows you to specify the columns that you want to modify.
+     */
     public advancedsql.query.action.Modify modify() {
         return modify;
     }
 
+    /**
+     * @return "Add" Object that allows you to specify the columns that you want to add.
+     */
     public advancedsql.query.action.Add add() {
         return add;
     }

@@ -15,7 +15,7 @@ public class Select extends ExecuteQuery<Select> {
 
     private String order = null;
 
-    private List<IJoin> joins = new ArrayList<>();
+    private final List<IJoin> joins = new ArrayList<>();
 
     public Select(ITable table, String[] columns) {
         super(table);
@@ -27,28 +27,50 @@ public class Select extends ExecuteQuery<Select> {
         super(table);
     }
 
-    public void order(String order) {
-        this.order = order;
+    /**
+     * Set how the values will be ordered.
+     * Example: .orderBy("id DESC")
+     * @param order Values order
+     */
+    public Select order(String order) {
+        return this.orderBy(order);
     }
 
-    public void orderBy(String order) {
+    /**
+     * Set how the values will be ordered.
+     * Example: .orderBy("id DESC")
+     * @param order Values order
+     */
+    public Select orderBy(String order) {
         this.order = order;
+
+        return this;
     }
 
-    public Select setColumns(String[] columns) {
+    /**
+     * Set the columns that you want to fetch.
+     * @param columns Columns array.
+     * @return Query object.
+     */
+    public Select columns(String[] columns) {
         this.columns = columns;
 
         return this;
     }
 
-    public Select columns(String[] columns) {
-        return this.setColumns(columns);
-    }
-
+    /**
+     * Set DISTINCT attribute.
+     * @param column Name of the column that you want to be distinct.
+     */
     public void distinct(String column) {
         this.distinct = column;
     }
 
+    /**
+     * Join table.
+     * @param table Table name.
+     * @return IJoin object.
+     */
     public IJoin join(String table) {
         IJoin join = new Join(this, table);
 
@@ -57,6 +79,11 @@ public class Select extends ExecuteQuery<Select> {
         return join;
     }
 
+    /**
+     * Inner Join table.
+     * @param table Table name.
+     * @return IJoin object.
+     */
     public IJoin innerJoin(String table) {
         IJoin join = new InnerJoin(this, table);
 
@@ -65,6 +92,11 @@ public class Select extends ExecuteQuery<Select> {
         return join;
     }
 
+    /**
+     * Left Join table.
+     * @param table Table name.
+     * @return IJoin object.
+     */
     public IJoin leftJoin(String table) {
         IJoin join = new LeftJoin(this, table);
 
@@ -73,6 +105,11 @@ public class Select extends ExecuteQuery<Select> {
         return join;
     }
 
+    /**
+     * Right Join table.
+     * @param table Table name.
+     * @return IJoin object.
+     */
     public IJoin rightJoin(String table) {
         IJoin join = new RightJoin(this, table);
 
@@ -81,6 +118,11 @@ public class Select extends ExecuteQuery<Select> {
         return join;
     }
 
+    /**
+     * Full Join table.
+     * @param table Table name.
+     * @return IJoin object.
+     */
     public IJoin fullJoin(String table) {
         IJoin join = new FullJoin(this, table);
 

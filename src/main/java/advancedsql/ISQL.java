@@ -11,14 +11,38 @@ import java.util.Map;
 
 public interface ISQL {
 
+    /**
+     * Prepare SQL query.
+     * @param query Query object that you want to prepare.
+     * @return A PreparedStatement object.
+     * @throws SQLException Exception when something goes wrong.
+     */
     PreparedStatement prepare(IQuery query) throws SQLException;
 
+    /**
+     * Get access to a table object to modify information.
+     * @param name Name of the table.
+     * @return A Table object which allows you to execute SQL query's.
+     */
     ITable table(String name);
 
+    /**
+     * Get connection state.
+     * @return true if connected, false if not.
+     */
     boolean isConnected();
 
+    /**
+     * @return Connection Object.
+     */
     Connection getConnection();
 
+    /**
+     * Convert a ResultSet into a list.
+     * @param resultSet Result set
+     * @return Returns a list of map with the column name and value.
+     * @throws SQLException Exception when something goes wrong.
+     */
     static List<Map<String, Object>> convertResultSetToList(ResultSet resultSet) throws SQLException {
         ResultSetMetaData metaData = resultSet.getMetaData();
 
@@ -37,6 +61,12 @@ public interface ISQL {
         return list;
     }
 
+    /**
+     * Set statement parameters.
+     * @param statement Statement to modify.
+     * @param execute Parameters to assign.
+     * @throws SQLException Exception when something goes wrong.
+     */
     static void setStatementParameters(PreparedStatement statement, List<Object> execute) throws SQLException {
         for (int i = 0; i < execute.size(); i++) {
             Object value = execute.get(i);

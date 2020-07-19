@@ -230,6 +230,7 @@ public abstract class Action implements IAction<IColumn> {
         return column;
     }
 
+    @Override
     public List<IColumn> getColumns() {
         return columns;
     }
