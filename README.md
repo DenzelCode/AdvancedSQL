@@ -6,9 +6,10 @@ AdvancedSQL is a SQL query builder and/or connector that helps you to generate/m
 
 ## Documentation:
 Connect to the Database:
+There is no need to create the database manually, AdvancedSQL does it for you.
 ```java
 try {
-    MySQL mySQL = new MySQL("127.0.0.1", 3306, "root", "", "unittesting");
+    MySQL mySQL = new MySQL("127.0.0.1", 3306, "root", "password", "database");
 
     if (mySQL.isConnected()) {
         System.out.println("Connected!");
