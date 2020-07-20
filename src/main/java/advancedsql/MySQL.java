@@ -6,6 +6,17 @@ import java.sql.Statement;
 
 public class MySQL extends SQL {
 
+    /**
+     * Create MySQL connection.
+     * Do not worry about creating the database, AdvancedSQL takes care of it for you.
+     * @param host MySQL server host.
+     * @param port MySQL server port.
+     * @param username MySQL server username.
+     * @param password MySQL server password.
+     * @param database MySQL server database. If not exists AdvancedSQL creates it for you.
+     * @param attributes MySQL server connection attributes.
+     * @throws SQLException Exception when something goes wrong.
+     */
     public MySQL(String host, int port, String username, String password, String database, String attributes) throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
