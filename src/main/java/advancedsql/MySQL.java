@@ -24,7 +24,7 @@ public class MySQL extends SQL {
             this.connect(host, port, username, password, database, attributes);
         } catch (SQLException e) {
             if (e.getErrorCode() == 1049) {
-                createDatabase(host, port, username, password, database);
+                createDatabase(host, port, username, password, database, attributes);
 
                 connect(host, port, username, password, database, attributes);
 
@@ -59,8 +59,8 @@ public class MySQL extends SQL {
         this.connected = true;
     }
 
-    private void createDatabase(String host, int port, String username, String password, String database) throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "?", username, password);
+    private void createDatabase(String host, int port, String username, String password, String database, String attributes) throws SQLException {
+        connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + (attributes.isEmpty() ? "" : "?" + attributes), username, password);
 
         Statement statement = connection.createStatement();
 

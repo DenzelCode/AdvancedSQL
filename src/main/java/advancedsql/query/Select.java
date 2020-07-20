@@ -141,7 +141,7 @@ public class Select extends ExecuteQuery<Select> {
 
         for (IJoin join: this.joins) query.append(" ").append(join);
 
-        query.append(this.where != null ? "WHERE " + this.where : "");
+        query.append(this.where != null ? " WHERE " + this.where : "");
 
         query.append(this.order != null ? " ORDER BY " + this.order : "");
 
