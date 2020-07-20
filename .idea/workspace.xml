@@ -26,8 +26,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fa7ecebd-2fc4-411e-bea9-987f673412b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/advancedsql/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/advancedsql/MySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/advancedsql/query/Select.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/advancedsql/query/Select.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +243,8 @@
       <workItem from="1595170306706" duration="6446000" />
       <workItem from="1595205444153" duration="262000" />
       <workItem from="1595205723619" duration="240000" />
-      <workItem from="1595206054562" duration="2421000" />
+      <workItem from="1595206054562" duration="4049000" />
+      <workItem from="1595283027770" duration="9000" />
     </task>
     <servers />
   </component>
@@ -287,22 +287,22 @@
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state x="591" y="319" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.23.1680.955@0.23.1680.955" timestamp="1595205578146" />
-    <state width="1638" height="257" key="GridCell.Tab.0.bottom" timestamp="1595209586230">
+    <state width="1638" height="257" key="GridCell.Tab.0.bottom" timestamp="1595229941438">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1595209586230" />
-    <state width="1638" height="257" key="GridCell.Tab.0.center" timestamp="1595209586229">
+    <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1595229941438" />
+    <state width="1638" height="257" key="GridCell.Tab.0.center" timestamp="1595229941436">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1595209586229" />
-    <state width="1638" height="257" key="GridCell.Tab.0.left" timestamp="1595209586228">
+    <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1595229941436" />
+    <state width="1638" height="257" key="GridCell.Tab.0.left" timestamp="1595229941419">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1595209586228" />
-    <state width="1638" height="257" key="GridCell.Tab.0.right" timestamp="1595209586229">
+    <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1595229941419" />
+    <state width="1638" height="257" key="GridCell.Tab.0.right" timestamp="1595229941437">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1595209586229" />
+    <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1595229941437" />
     <state width="1638" height="311" key="GridCell.Tab.1.bottom" timestamp="1594965772050">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
@@ -343,6 +343,10 @@
       <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state x="542" y="65" width="596" height="870" key="find.popup/0.23.1680.955@0.23.1680.955" timestamp="1595030941235" />
+    <state x="208" y="82" key="new project wizard" timestamp="1595229939047">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state x="208" y="82" key="new project wizard/0.23.1680.955@0.23.1680.955" timestamp="1595229939047" />
     <state x="666" y="273" key="refactoring.ChangeSignatureDialog" timestamp="1594872393385">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
