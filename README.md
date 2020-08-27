@@ -27,10 +27,7 @@ try {
 **Create table:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
 import advancedsql.table.ITable;
-
-import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
@@ -60,11 +57,8 @@ try {
 **Alter table:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
 import advancedsql.query.action.Add;
 import advancedsql.query.action.Modify;
-
-import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
@@ -99,11 +93,6 @@ try {
 **Insert:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
-
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 try {
     MySQL mySQL = connect();
@@ -126,10 +115,6 @@ try {
 **Update:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 try {
     MySQL mySQL = connect();
@@ -151,8 +136,6 @@ try {
 **Select:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
-import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
@@ -172,14 +155,9 @@ try {
 **Select with join:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
 import advancedsql.query.action.Add;
 import advancedsql.query.action.Modify;
 import advancedsql.table.ITable;
-
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 try {
     MySQL mySQL = connect();
@@ -229,8 +207,6 @@ try {
 **Delete:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
-import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
@@ -250,8 +226,6 @@ try {
 **Truncate:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
-import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
@@ -271,8 +245,6 @@ try {
 **Drop:**
 ```java
 import advancedsql.*;
-import advancedsql.query.*;
-import java.sql.SQLException;
 
 try {
     MySQL mySQL = connect();
