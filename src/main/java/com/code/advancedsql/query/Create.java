@@ -19,6 +19,8 @@ public class Create extends ExecuteStatement<Create> {
 
     private final Action action = new Regular();
 
+    private boolean ifNotExists = false;
+
     public Create(ITable table) {
         super(table);
     }
@@ -315,9 +317,16 @@ public class Create extends ExecuteStatement<Create> {
         return this.action.column(name, content);
     }
 
+    /**
+     * Create table if not exists.
+     */
+    public void ifNotExists() {
+        this.ifNotExists = true;
+    }
+
     @Override
     public java.lang.String toQuery() {
-        StringBuilder query = new StringBuilder("CREATE TABLE " + this.table + " ( ");
+        StringBuilder query = new StringBuilder("CREATE TABLE " + (ifNotExists ? "IF NOT EXISTS" : "") + this.table + " ( ");
 
         List<IColumn> columns = this.action.getColumns();
 
