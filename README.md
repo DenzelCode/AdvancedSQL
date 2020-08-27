@@ -7,6 +7,16 @@ AdvancedSQL is a SQL query builder and/or connector that helps you to generate/m
 ## Download
 Download the last JAR version: https://github.com/DenzelCode/AdvancedSQL/releases/latest
 
+## Dependency for maven:
+```
+<dependency>
+    <groupId>com.code</groupId>
+    <artifactId>advancedsql</artifactId>
+    <version>2.0.0</version>
+    <systemPath>${project.basedir}/lib/AdvancedSQL.jar</systemPath>
+</dependency>
+```
+
 ## Examples:
 **Connect to the Database:**
 There is no need to create the database manually, AdvancedSQL does it for you.
