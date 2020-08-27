@@ -320,8 +320,10 @@ public class Create extends ExecuteStatement<Create> {
     /**
      * Create table if not exists.
      */
-    public void ifNotExists() {
+    public Create ifNotExists() {
         this.ifNotExists = true;
+
+        return this;
     }
 
     @Override
