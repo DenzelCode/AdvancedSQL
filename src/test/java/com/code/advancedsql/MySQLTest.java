@@ -100,7 +100,7 @@ public class MySQLTest {
             MySQL mySQL = connect();
 
             // Insert
-            Insert query = mySQL.table("users").insert(new HashMap<>(){{
+            Insert query = mySQL.table("users").insert(new HashMap<String, Object>(){{
                 put("first_name", "Denzel");
                 put("last_name", "Code");
             }});
@@ -121,7 +121,7 @@ public class MySQLTest {
             MySQL mySQL = connect();
 
             // Update
-            Update query = mySQL.table("users").update(new HashMap<>(){{
+            Update query = mySQL.table("users").update(new HashMap<String, Object>(){{
                 put("token", "Advanced");
             }}).where("first_name = ?", "Denzel");
             int execute = query.execute();
@@ -180,7 +180,7 @@ public class MySQLTest {
             String address = "20 Cooper Square";
 
             // Insert value
-            table.insert(new HashMap<>(){{
+            table.insert(new HashMap<String, Object>(){{
                 put("user_id", 1);
                 put("address", address);
             }}).execute();
