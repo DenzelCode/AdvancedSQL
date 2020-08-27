@@ -2,7 +2,6 @@ package com.code.advancedsql.table;
 
 import com.code.advancedsql.ISQL;
 import com.code.advancedsql.SQL;
-import advancedsql.query.*;
 import com.code.advancedsql.query.*;
 
 import java.sql.DatabaseMetaData;

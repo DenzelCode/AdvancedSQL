@@ -1,7 +1,6 @@
 package com.code.advancedsql;
 
 import com.code.advancedsql.query.IQuery;
-import com.code.advancedsql.table.ITable;
 import com.code.advancedsql.table.Table;
 
 import java.sql.Connection;
@@ -25,7 +24,7 @@ public abstract class SQL implements ISQL {
     }
 
     @Override
-    public ITable table(String name) {
+    public Table table(String name) {
         return new Table(this, name);
     }
     

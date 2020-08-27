@@ -8,8 +8,14 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library
+    id 'java'
     id 'java-library'
     id 'maven-publish'
+}
+
+compileJava {
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
 }
 
 repositories {
@@ -34,3 +40,5 @@ dependencies {
 
     compile (name:'mysql-connector-java-8.0.21', ext:'jar')
 }
+
+apply plugin: 'java'

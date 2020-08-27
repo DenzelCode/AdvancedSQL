@@ -1,6 +1,5 @@
 package com.code.advancedsql.query;
 
-import advancedsql.query.join.*;
 import com.code.advancedsql.table.ITable;
 import com.code.advancedsql.query.join.*;
 
