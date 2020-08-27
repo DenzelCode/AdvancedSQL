@@ -328,7 +328,7 @@ public class Create extends ExecuteStatement<Create> {
 
     @Override
     public java.lang.String toQuery() {
-        StringBuilder query = new StringBuilder("CREATE TABLE " + (ifNotExists ? "IF NOT EXISTS" : "") + this.table + " ( ");
+        StringBuilder query = new StringBuilder("CREATE TABLE " + (ifNotExists ? "IF NOT EXISTS " : "") + this.table + " ( ");
 
         List<IColumn> columns = this.action.getColumns();
 
