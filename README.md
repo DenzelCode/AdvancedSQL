@@ -13,7 +13,7 @@ Download the last JAR version: https://github.com/DenzelCode/AdvancedSQL/release
     <groupId>com.code</groupId>
     <artifactId>advancedsql</artifactId>
     <version>2.0.0</version>
-    <systemPath>${project.basedir}/lib/AdvancedSQL.jar</systemPath>
+    <systemPath>${project.basedir}/lib/com.code.advancedsql.jar</systemPath>
 </dependency>
 ```
 
@@ -21,7 +21,7 @@ Download the last JAR version: https://github.com/DenzelCode/AdvancedSQL/release
 **Connect to the Database:**
 There is no need to create the database manually, AdvancedSQL does it for you.
 ```java
-import advancedsql.*;
+import com.code.advancedsql.*;
 
 try {
     MySQL mySQL = new MySQL("127.0.0.1", 3306, "root", "password", "database");
@@ -36,8 +36,8 @@ try {
 
 **Create table:**
 ```java
-import advancedsql.*;
-import advancedsql.table.ITable;
+import com.code.advancedsql.*;
+import com.code.advancedsql.table.ITable;
 
 try {
     MySQL mySQL = connect();
@@ -66,9 +66,9 @@ try {
 
 **Alter table:**
 ```java
-import advancedsql.*;
-import advancedsql.query.action.Add;
-import advancedsql.query.action.Modify;
+import com.code.advancedsql.*;
+import com.code.advancedsql.query.action.Add;
+import com.code.advancedsql.query.action.Modify;
 
 try {
     MySQL mySQL = connect();
@@ -82,7 +82,7 @@ try {
     add.string("connection_id").nullable();
 
     // Drop columns
-    advancedsql.query.action.Drop drop = alter.drop();
+    com.code.advancedsql.query.action.Drop drop = alter.drop();
     drop.column("test");
 
     // Modify columns
@@ -102,7 +102,7 @@ try {
 
 **Insert:**
 ```java
-import advancedsql.*;
+import com.code.advancedsql.*;
 
 try {
     MySQL mySQL = connect();
@@ -124,7 +124,7 @@ try {
 
 **Update:**
 ```java
-import advancedsql.*;
+import com.code.advancedsql.*;
 
 try {
     MySQL mySQL = connect();
@@ -145,7 +145,7 @@ try {
 
 **Select:**
 ```java
-import advancedsql.*;
+import com.code.advancedsql.*;
 
 try {
     MySQL mySQL = connect();
@@ -164,10 +164,10 @@ try {
 
 **Select with join:**
 ```java
-import advancedsql.*;
-import advancedsql.query.action.Add;
-import advancedsql.query.action.Modify;
-import advancedsql.table.ITable;
+import com.code.advancedsql.*;
+import com.code.advancedsql.query.action.Add;
+import com.code.advancedsql.query.action.Modify;
+import com.code.advancedsql.table.ITable;
 
 try {
     MySQL mySQL = connect();
@@ -216,7 +216,7 @@ try {
 
 **Delete:**
 ```java
-import advancedsql.*;
+import com.code.advancedsql.*;
 
 try {
     MySQL mySQL = connect();
@@ -235,7 +235,7 @@ try {
 
 **Truncate:**
 ```java
-import advancedsql.*;
+import com.code.advancedsql.*;
 
 try {
     MySQL mySQL = connect();
@@ -254,7 +254,7 @@ try {
 
 **Drop:**
 ```java
-import advancedsql.*;
+import com.code.advancedsql.*;
 
 try {
     MySQL mySQL = connect();
