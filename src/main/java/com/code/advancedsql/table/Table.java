@@ -26,9 +26,11 @@ public class Table implements ITable {
 
         ResultSet tables = metaData.getTables(null, null, this.name, null);
 
+        boolean next = tables.next();
+
         String name = tables.getString("TABLE_NAME");
 
-        return tables.next() && name != null && name.equals(this.name);
+        return next && name != null && name.equals(this.name);
     }
 
     @Override

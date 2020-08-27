@@ -33,9 +33,7 @@ public abstract class ExecuteQuery<T extends IQuery> extends Specifiable<T> {
 
         ResultSet resultSet = this.execute();
 
-        if (resultSet == null) return null;
-
-        resultSet.next();
+        if (resultSet == null || !resultSet.next()) return null;
 
         ResultSetMetaData metaData = resultSet.getMetaData();
 
