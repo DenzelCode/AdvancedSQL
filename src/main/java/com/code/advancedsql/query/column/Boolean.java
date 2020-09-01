@@ -4,7 +4,7 @@ import com.code.advancedsql.query.action.IAction;
 
 public class Boolean extends Column {
 
-    protected java.lang.String defaultValue;
+    protected java.lang.Boolean defaultValue;
 
     public Boolean(IAction<IColumn> action, java.lang.String name) {
         super(action, name, false);
@@ -15,7 +15,7 @@ public class Boolean extends Column {
      * @param value Default value.
      * @return Column object.
      */
-    public Boolean defaultValue(java.lang.String value) {
+    public Boolean defaultValue(java.lang.Boolean value) {
         this.defaultValue = value;
 
         return this;
