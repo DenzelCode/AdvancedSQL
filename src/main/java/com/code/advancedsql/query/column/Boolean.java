@@ -4,7 +4,7 @@ import com.code.advancedsql.query.action.IAction;
 
 public class Boolean extends Column {
 
-    protected java.lang.Boolean defaultValue;
+    protected java.lang.String defaultValue;
 
     public Boolean(IAction<IColumn> action, java.lang.String name) {
         super(action, name, false);
