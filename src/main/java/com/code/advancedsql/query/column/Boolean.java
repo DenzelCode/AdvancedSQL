@@ -15,7 +15,7 @@ public class Boolean extends Column {
      * @param value Default value.
      * @return Column object.
      */
-    public Boolean defaultValue(java.lang.Boolean value) {
+    public Boolean defaultValue(java.lang.String value) {
         this.defaultValue = value;
 
         return this;
