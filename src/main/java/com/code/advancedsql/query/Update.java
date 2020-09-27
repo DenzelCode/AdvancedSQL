@@ -51,7 +51,7 @@ public class Update extends ExecuteUpdate<Update> {
 
         for (int i = 0; i < this.fields.size(); i++) query.append(this.fields.size() == 1 ? "SET " + this.fields.get(i) + " = ? " : (i == 0 ? "SET " + this.fields.get(i) + " = ?, " : (i != this.fields.size() - 1 ? this.fields.get(i) + " = ?, " : this.fields.get(i) + " = ?")));
 
-        query.append(this.where != null ? "WHERE " + this.where : "");
+        query.append(this.where != null ? " WHERE " + this.where : "");
 
         query.append(this.limit > 0 ? " LIMIT " + this.limit : "");
 
