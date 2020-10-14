@@ -11,9 +11,9 @@ import java.util.List;
 
 public abstract class Query<T extends IQuery> implements IQuery {
 
-    protected ISQL sql = null;
+    protected ISQL sql;
 
-    protected String table = null;
+    protected String table;
 
     protected List<Object> execute = new ArrayList<>();
 
@@ -22,8 +22,6 @@ public abstract class Query<T extends IQuery> implements IQuery {
     protected String where = null;
 
     protected int limit = 0;
-
-    private T instance;
 
     public Query(ITable table) {
         this.sql = table.getSQL();
