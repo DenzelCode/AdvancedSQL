@@ -108,6 +108,29 @@ try {
     MySQL mySQL = connect();
 
     // Insert
+    Insert query = mySQL.table("users").insert();
+    
+    query.field("first_name", "Denzel");
+    query.field("last_name", "Code");
+    
+    int execute = query.execute();
+
+    // Print query string and result.
+    System.out.println(query);
+    System.out.println(execute);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Insert HashMap:**
+```java
+import com.code.advancedsql.*;
+
+try {
+    MySQL mySQL = connect();
+
+    // Insert
     Insert query = mySQL.table("users").insert(new HashMap<>(){{
         put("first_name", "Denzel");
         put("last_name", "Code");
@@ -122,7 +145,30 @@ try {
 }
 ```
 
+
 **Update:**
+```java
+import com.code.advancedsql.*;
+
+try {
+    MySQL mySQL = connect();
+
+    // Update
+    Update query = mySQL.table("users").update().where("first_name = ?", "Denzel");
+    
+    query.field("token", "Advanced");
+    
+    int execute = query.execute();
+
+    // Print query string and result.
+    System.out.println(query);
+    System.out.println(execute)p
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
+
+**Update HashMap:**
 ```java
 import com.code.advancedsql.*;
 
