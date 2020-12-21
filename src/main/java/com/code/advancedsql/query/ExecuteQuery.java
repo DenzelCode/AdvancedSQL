@@ -53,11 +53,7 @@ public abstract class ExecuteQuery<T extends IQuery> extends Specifiable<T> {
     public List<Map<String, Object>> fetchAllAsList() throws SQLException {
         ResultSet resultSet = this.fetchAll();
 
-        List<Map<String, Object>> list = ISQL.convertResultSetToList(resultSet);
-
-        prepare.close();
-
-        return list;
+        return ISQL.convertResultSetToList(resultSet);
     }
 
     /**
