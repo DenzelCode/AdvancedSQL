@@ -42,10 +42,10 @@ public abstract class ExecuteQuery<T extends IQuery> extends Specifiable<T> {
         for (int i = 0; i < metaData.getColumnCount(); i++) {
             try {
                 map.put(metaData.getColumnName(i), resultSet.getObject(i));
-            } catch (SQLException e) {
-
-            }
+            } catch (SQLException ignored) {}
         }
+
+        resultSet.close();
 
         return map;
     }

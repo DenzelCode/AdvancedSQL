@@ -58,6 +58,8 @@ public interface ISQL {
             list.add(row);
         }
 
+        resultSet.close();
+
         return list;
     }
 
