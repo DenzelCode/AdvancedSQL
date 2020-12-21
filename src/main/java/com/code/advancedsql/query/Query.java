@@ -34,11 +34,7 @@ public abstract class Query<T extends IQuery> implements IQuery {
 
         ISQL.setStatementParameters(this.prepare, this.execute);
 
-        boolean execute = prepare.execute();
-
-        prepare.close();
-
-        return execute;
+        return prepare.execute();
     }
 
     public ResultSet executeQuery() throws SQLException {
@@ -54,11 +50,7 @@ public abstract class Query<T extends IQuery> implements IQuery {
 
         ISQL.setStatementParameters(this.prepare, this.execute);
 
-        int update = prepare.executeUpdate();
-
-        prepare.close();
-
-        return update;
+        return prepare.executeUpdate();
     }
 
     public abstract String toQuery();
