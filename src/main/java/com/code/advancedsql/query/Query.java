@@ -46,11 +46,7 @@ public abstract class Query<T extends IQuery> implements IQuery {
 
         ISQL.setStatementParameters(this.prepare, this.execute);
 
-        ResultSet result = prepare.executeQuery();
-
-        prepare.close();
-
-        return result;
+        return prepare.executeQuery();
     }
 
     public int executeUpdate() throws SQLException {
