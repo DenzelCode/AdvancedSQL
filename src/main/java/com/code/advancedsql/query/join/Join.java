@@ -133,15 +133,9 @@ public class Join implements IJoin {
 
     @Override
     public String toQuery() {
-        StringBuilder query = new StringBuilder(this.getPrefix() + " " + this.table);
-
-        query.append(this.as != null ? " AS " + this.as : "");
-
-        query.append(this.on != null ? " ON (" + this.on + ")" : "");
-
-        query.append(this.using != null ? " USING (" + String.join(", ", this.using) + ")" : " ");
-
-        return query.toString();
+        return this.getPrefix() + " " + this.table + (this.as != null ? " AS " + this.as : "") +
+                (this.on != null ? " ON (" + this.on + ")" : "") +
+                (this.using != null ? " USING (" + String.join(", ", this.using) + ")" : " ");
     }
 
     @Override

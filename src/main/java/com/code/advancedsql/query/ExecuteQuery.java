@@ -39,11 +39,10 @@ public abstract class ExecuteQuery<T extends IQuery> extends Specifiable<T> {
 
         Map<String, Object> map = new HashMap<>();
 
-        for (int i = 0; i < metaData.getColumnCount(); i++) {
-            try {
+        try {
+            for (int i = 1; i <= metaData.getColumnCount(); i++)
                 map.put(metaData.getColumnName(i), resultSet.getObject(i));
-            } catch (SQLException ignored) {}
-        }
+        } catch (SQLException ignored) {}
 
         resultSet.close();
         prepare.close();
