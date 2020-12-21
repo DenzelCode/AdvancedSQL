@@ -28,9 +28,11 @@ public class Table implements ITable {
 
         boolean next = tables.next();
 
+        if (!next) return false;
+
         String name = tables.getString("TABLE_NAME");
 
-        return next && name != null && name.equals(this.name);
+        return name != null && name.equals(this.name);
     }
 
     @Override
