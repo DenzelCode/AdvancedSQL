@@ -31,23 +31,11 @@ public abstract class ExecuteQuery<T extends IQuery> extends Specifiable<T> {
     public Map<String, Object> fetch() throws SQLException {
         this.limit(1);
 
-        ResultSet resultSet = this.execute();
+        List<Map<String, Object>> result = fetchAllAsList();
 
-        if (resultSet == null || !resultSet.next()) return null;
+        if (result.size() == 0) return null;
 
-        ResultSetMetaData metaData = resultSet.getMetaData();
-
-        Map<String, Object> map = new HashMap<>();
-
-        try {
-            for (int i = 1; i <= metaData.getColumnCount(); i++)
-                map.put(metaData.getColumnName(i), resultSet.getObject(i));
-        } catch (SQLException ignored) {}
-
-        resultSet.close();
-        prepare.close();
-
-        return map;
+        return result.get(0);
     }
 
     /**
