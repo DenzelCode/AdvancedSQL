@@ -26,7 +26,7 @@ public abstract class ExecuteUpdate<T extends IQuery> extends Specifiable<T> {
     public PreparedStatement executePrepare() throws SQLException {
         this.execute();
 
-        return this.prepare;
+        return prepare;
     }
 
     /**
