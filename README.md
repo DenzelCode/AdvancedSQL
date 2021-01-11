@@ -13,6 +13,7 @@ Download the latest JAR: https://github.com/DenzelCode/AdvancedSQL/releases/late
     <groupId>com.code</groupId>
     <artifactId>advancedsql</artifactId>
     <version>2.0.0</version>
+    <scope>system</scope>
     <systemPath>${project.basedir}/lib/AdvancedSQL.jar</systemPath>
 </dependency>
 ```
