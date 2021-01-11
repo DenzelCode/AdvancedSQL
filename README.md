@@ -47,7 +47,7 @@ try {
     ITable table = mySQL.table("users");
 
     // Create table
-    Create create = table.create();
+    Create create = table.create().ifNotExists();
 
     // Table columns
     create.id();
