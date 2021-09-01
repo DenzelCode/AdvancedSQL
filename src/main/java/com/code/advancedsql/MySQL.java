@@ -50,7 +50,7 @@ public class MySQL extends SQL {
      * @throws SQLException Exception when something goes wrong.
      */
     public MySQL(String host, int port, String username, String password, String database) throws SQLException {
-        this(host, port, username, password, database, "useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        this(host, port, username, password, database, "useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true");
     }
 
     private void connect(String host, int port, String username, String password, String database, String attributes) throws SQLException {
