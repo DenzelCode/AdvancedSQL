@@ -214,3 +214,4 @@ nbdist/
 # Jrebel
 rebel.xml
 rebel-remote.xml
+META-INF
